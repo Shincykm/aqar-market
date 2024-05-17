@@ -18,13 +18,13 @@ const LatestListing = () => {
       </div>
       
       {/* Cards */}
-      <div className="flex gap-8">
-        {PROPERTY_CATEGORIES.map((prop, index)=>(
-            <Cards key={index} properties = {prop}>
-              <AgentCards agentData={agentData}/>
-            </Cards>
-        ))}
-      </div>
+        <div className="flex gap-8">
+          {PROPERTY_CATEGORIES.map((prop, index)=>(
+              <Cards key={index} properties = {prop}>
+                <AgentCards agentData={agentData}/>
+              </Cards>
+          ))}
+        </div>
       
     </Container>
   )

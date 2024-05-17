@@ -121,7 +121,34 @@ export const PROPERTY_CATEGORIES = [
       }
     ]
   },
-  
+  {
+    id:4,
+    img:'/rent-1.png',
+    title:"Southwest 39th Terrace",
+    subTitle: 'Largest Apartment in Townsquare | On The Park',
+    description: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using , making it look like readable English',
+    status : 'rent',
+    startingPrice : 30000,
+    area :5490,
+    beds:5,
+    baths:3,
+    agentId:1,
+    location : "Business Bay, Dubai",
+    images : [
+      {
+        id:1, 
+        url : '/images/properties/Mask.png'
+      },
+      {
+        id:2, 
+        url : '/images/properties/Mask-new.png'
+      },
+      {
+        id:3, 
+        url : '/images/properties/Mask.png'
+      }
+    ]
+  },
 ];
 
 export const AGENTS_DETAILS = [
