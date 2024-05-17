@@ -7,63 +7,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/components/shared";
 
-// const Navbar = () => {
-//   const pathname = usePathname(); 
-  
-//   const [isShowNav, setIsShowNav] = useState(false);
-
-//   const handleClose = ()=>{
-//     setIsShowNav(false);
-//   }
-//   console.log(isShowNav);
-  
-
-//   return (
-//     <>
-//       <ul className={`font-satoshi font-normal w-full md:flex-center gap-20 hidden`}>
-//         {NAV_LINKS.map(({ id, link, title }) => (
-//           <li
-//             key={id}
-//             className={`cursor-pointer capitalize font-medium text-sm
-//             ${pathname === `/${link}` ? 'text-primary-blue-light' : 'text-primary-blue'}`}
-//           >
-//             <Link href={link}>{title}</Link>
-//           </li>
-//         ))}
-//       </ul>
-
-//       <div
-//         onClick={handleClose}
-//         className="cursor-pointer z-50 text-secondary-blue md:hidden p-4"
-//       >
-//         {isShowNav ? (
-//           <FaTimes size={30} className="text-primary-green" />
-//         ) : (
-//           <FaBars size={30} className="text-primary-green"/>
-//         )}
-//       </div>
-
-//       {/* Mobile Navigation */}
-//       {isShowNav && (
-//         <ul className="md:hidden flex flex-col justify-center items-center absolute w-full h-screen top-0 left-0 bg-gradient-to-b from-primary-green-light to-primary-green text-white">
-//           {NAV_LINKS.map(({ id, link, title }) => (
-//             <li
-//               key={id}
-//               className="px-4 cursor-pointer capitalize py-6 text-3xl"
-//             >
-//               <Link onClick={() => setIsShowNav(!isShowNav)} href={link}>
-//                 {title}
-//               </Link>
-//             </li>
-//           ))}
-//         </ul>
-//       )}
-//     </>
-//   );
-// };
-
 const Navbar = () => {
   // State to manage the navbar's visibility
+  const pathname = usePathname();
   const [nav, setNav] = useState(false);
 
   // Toggle function to handle the navbar's display
@@ -72,7 +18,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className='flex justify-between items-center px-2 py-3 md:px-30 md:py-10 font-satoshi text-primary-blue text-sm font-medium'>
+    <div className='flex justify-between items-center px-2 py-3 md:px-30 md:py-6 font-satoshi text-sm font-medium'>
       {/* Logo */}
       <Logo />
 
@@ -81,7 +27,7 @@ const Navbar = () => {
         {NAV_LINKS.map(item => (
           <li
             key={item.id}
-            className='flex-center gap-12 p-2 hover:bg-primary-green hover:text-white rounded-xl m-2 cursor-pointer duration-300'
+            className={`flex-center gap-12 px-2 py-1 hover:text-primary-green rounded-xl m-2 cursor-pointer duration-300 ${pathname === item.link ? 'text-primary-green' : 'text-primary-blue'}`}
           >
             <Link href={item.link}>{item.title}</Link>
           </li>

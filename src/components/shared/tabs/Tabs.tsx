@@ -1,13 +1,22 @@
 "use client";
-import React, { useState } from "react";
+
+import React, { useState, ReactNode, MouseEvent, ReactElement } from "react";
 import Button from "../button/Button";
 
-export const Tabs = ({ children }) => {
-  const [activeTab, setActiveTab] = useState(
-    React.Children.toArray(children)[0]?.props?.label
-  );
+interface TabsProps {
+  children: ReactElement<TabProps> | ReactElement<TabProps>[];
+}
 
-  const handleClick = (e, newActiveTab) => {
+interface TabProps {
+  label: string;
+  children: ReactNode;
+}
+
+export const Tabs: React.FC<TabsProps> = ({ children }) => {
+  const childArray = React.Children.toArray(children) as ReactElement<TabProps>[];
+  const [activeTab, setActiveTab] = useState(childArray[0]?.props?.label);
+
+  const handleClick = (e: MouseEvent<HTMLButtonElement>, newActiveTab: string) => {
     e.preventDefault();
     setActiveTab(newActiveTab);
   };
@@ -15,7 +24,7 @@ export const Tabs = ({ children }) => {
   return (
     <>
       <div className="mx-6 mt-20 flex max-w-max overflow-hidden rounded-t-lg bg-red-100">
-        {React.Children.map(children, (child) => (
+        {childArray.map((child) => (
           <Button
             key={child.props?.label}
             className={`${
@@ -30,25 +39,25 @@ export const Tabs = ({ children }) => {
         ))}
       </div>
 
-      
-        {React.Children.map(children, (child) => {
-          if (child.props.label === activeTab) {
-            return (
-              <div key={child.props.label} className={""}>
-                {child.props.children}
-              </div>
-            );
-          }
-          return null;
-        })}
+      {childArray.map((child) => {
+        if (child.props.label === activeTab) {
+          return (
+            <div key={child.props.label} className="">
+              {child.props.children}
+            </div>
+          );
+        }
+        return null;
+      })}
     </>
   );
 };
 
-export const Tab = ({ label, children }) => {
+export const Tab: React.FC<TabProps> = ({ label, children }) => {
   return (
-    <div label={label} className="hidden">
+    <div data-label={label} className="hidden">
       {children}
     </div>
   );
 };
+

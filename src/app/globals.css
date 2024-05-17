@@ -14,8 +14,13 @@
     scrollbar-width: 0;
   }
 
-  body {
+  h1, h2, h3, h4, h5, h6{
     font-family: var(--font-chillax);
+  }
+
+  p, span {
+    font-family: var(--font-satoshi);
+    letter-spacing: 0.03rem;
   }
 
   ::-webkit-scrollbar {
@@ -32,4 +37,10 @@
     @apply font-semibold text-base;
   } */
 
+}
+
+@layer components {
+  .overlay {
+    @apply absolute w-full h-full inset-0 bg-blend-darken bg-black bg-opacity-30
+  }
 }

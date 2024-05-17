@@ -1,16 +1,32 @@
-import { ReactNode } from "react";
+// import { ReactNode } from "react";
 
-type ButtonProps = {
-  children: ReactNode;
-  onClick?: () => void;
+// type ButtonProps = {
+//   children: ReactNode;
+//   onClick?: () => void;
+// }
+
+// const Button = ({ children, onClick, ...props} : ButtonProps) => {
+//   return (
+//     <button onClick={onClick} {...props}>
+//         {children}
+//     </button>
+//   )
+// }
+
+// export default Button
+
+import React, { ButtonHTMLAttributes } from 'react';
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  className?: string;
 }
 
-const Button = ({ children, onClick, ...props} : ButtonProps) => {
+const Button: React.FC<ButtonProps> = ({ className, children, onClick, ...props }) => {
   return (
-    <button onClick={onClick} {...props}>
-        {children}
+    <button className={className} onClick={onClick} {...props}>
+      {children}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

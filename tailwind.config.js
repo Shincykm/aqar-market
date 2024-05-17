@@ -22,6 +22,7 @@ export const theme = {
     },
     spacing: {
       '30': '7.5rem',
+      '13' : '3.125rem',
     },
     colors: {
       // New Deisgn Colors
@@ -29,8 +30,11 @@ export const theme = {
       'primary-green-light' : 'rgba(53, 181, 180, 0.2)',
       'primary-blue' : 'rgba(0, 46, 80, 1)',
       'primary-blue-light' : 'rgba(0, 46, 80, 0.5)',
+      'secondary-blue' :'rgba(55, 53, 59, 1)' ,
       'primary-violet' : 'rgba(33, 32, 60, 1)',
       'primary-gray-light' : 'rgba(249, 249, 249, 1)',
+      'primary-gray' : 'rgba(203, 213, 225, 1)',
+      'secondary-gray' : 'rgba(243, 243, 243, 1)',
     },
   },
 };

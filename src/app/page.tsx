@@ -1,9 +1,12 @@
 import HeroView from '@/sections/hero/view/HeroView';
+import LatestListing from '@/sections/homepage/view/LatestListing';
 
 export default function Home() {
   return (
     <main className="w-full">
-        {/* <HeroView /> */}
+        <HeroView />
+
+        <LatestListing />
     </main>
   );
 }

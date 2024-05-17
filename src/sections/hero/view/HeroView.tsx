@@ -7,17 +7,21 @@ import SearchForm from "@/sections/hero/SearchForm";
 const HeroView = () => {
   return (
     <HeroContainer>
-      <div className="relative">
+      <div className="relative max-h-[600px] overflow-hidden">
         {/* Video Component */}
         <Video src={"videos/aqar-video.mp4"} height="600px" />
-        <div className=" absolute w-full h-full inset-0 bg-darken bg-black bg-opacity-30"></div>
+        <div className="overlay"></div>
 
-        <div className="absolute top-32 px-30">
-          <div className="text-white w-[85%]">
+        <div className="absolute top-2 md:top-1/4 px-2 md:px-30">
+          <div className="text-white">
             {/* Title Component */}
             <HeroTitle
-              fontSize="text-40px"
-              title="Discover a wide selection of home listings in the UAE with Aqarmarket."
+              fontSize="text-clamp md:text-40px"
+              title="Discover a wide selection of home"
+            />
+            <HeroTitle
+              fontSize="text-clamp md:text-40px"
+              title="listings in the UAE with Aqarmarket."
             />
 
             {/* Search */}

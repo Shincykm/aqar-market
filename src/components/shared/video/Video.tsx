@@ -1,6 +1,6 @@
 const Video = ({ src, height="600px" }) => {
   return (
-    <div className={`w-full h-[${height}]`}>
+    <div className="flex-center">
       <video
         autoPlay
         loop
