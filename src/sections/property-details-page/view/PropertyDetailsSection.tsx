@@ -2,7 +2,9 @@ import { PROPERTY_CATEGORIES } from '@/constants/constants';
 import React from 'react'
 
 const PropertyDetailsSection = (propertyId) => {
-  console.log(propertyId);
+  const propertiesData = PROPERTY_CATEGORIES.filter(item => (item.id === propertyId));
+  console.log(PROPERTY_CATEGORIES);
+  
   
   return (
     <div className="flex flex-col">
