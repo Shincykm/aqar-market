@@ -30,7 +30,7 @@ const Carousel: any = (images) => {
           >
             <img
               src={item.url}
-              className="absolute block w-full h-full max-w-[350px] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              className="absolute block w-full h-full max-w-[400px] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt={`Slide ${index + 1}`}
             />
           </div>

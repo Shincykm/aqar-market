@@ -1,11 +1,9 @@
 import React from 'react'
 import Title from '../Title'
-import { Container, CustomSwiper } from '@/components/shared'
-import { AGENTS_DETAILS, PROPERTY_CATEGORIES } from '@/constants/constants'
+import { AgentCards, Cards, Container, CustomSwiper } from '@/components/shared'
+import { PROPERTY_CATEGORIES } from '@/constants/constants'
 
 const LatestListing = () => {
-
-  const agentData = AGENTS_DETAILS[0];
 
   return (
    <>
@@ -17,8 +15,13 @@ const LatestListing = () => {
     </Container>
 
     {/* Cards */} 
-      <CustomSwiper scrollbar={false} data = {PROPERTY_CATEGORIES} agent={true}>
-      </CustomSwiper>
+    <CustomSwiper scrollbar={false} >
+      {PROPERTY_CATEGORIES.map((item)=>(
+        <Cards properties = {item} link={'/properties/property-details'}>
+          <AgentCards agentId={item.agentId} />
+        </Cards>
+      ))}
+    </CustomSwiper>
    </>
   )
 }

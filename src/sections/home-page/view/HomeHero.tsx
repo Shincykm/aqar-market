@@ -2,9 +2,9 @@ import { Tab, Tabs } from "@/components/shared";
 import { Video } from "@/components/shared";
 import HeroContainer from "@/sections/hero/HeroContainer";
 import HeroTitle from "@/sections/hero/HeroTitle";
-import SearchForm from "@/sections/hero/SearchForm";
+import SearchForm from "@/sections/home-page/SearchForm";
 
-const HeroView = () => {
+const HomeHero = () => {
   return (
     <HeroContainer>
       <div className="relative max-h-[600px] overflow-hidden">
@@ -36,4 +36,4 @@ const HeroView = () => {
   );
 };
 
-export default HeroView;
+export default HomeHero

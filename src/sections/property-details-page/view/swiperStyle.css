@@ -1,0 +1,18 @@
+ /* Swiper Scrollbar Styling */
+ .swiper-button-next,
+ .swiper-button-prev {
+   @apply bg-transparent text-white bg-no-repeat
+ }
+
+ .swiper-button-prev {
+   background-image: url("/icons/box-arrow-in-left.svg");
+ }
+
+ .swiper-button-next {
+   background-image: url("/icons/box-arrow-in-right.svg");
+ }
+
+ .swiper-button-next::after,
+ .swiper-button-prev::after {
+   content: "";
+ }

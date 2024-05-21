@@ -253,4 +253,24 @@ export const PROPERTY_TYPES = [
     parent_id: null 
   },
   
-] 
+];
+
+
+export const HERO_IMAGES = [
+  {
+    id:1,
+    url : '/images/properties/hero-1.png'
+  },
+  {
+    id:2,
+    url : '/images/properties/hero-1.png'
+  },
+  {
+    id:3,
+    url : '/images/properties/hero-1.png'
+  },
+  {
+    id:4,
+    url : '/images/properties/hero-1.png'
+  },
+];
