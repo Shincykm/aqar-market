@@ -1,0 +1,11 @@
+/* styles.css */
+
+/* Swiper Scrollbar Styling */
+.swiper-scrollbar {
+    @apply bg-gray-300 h-2 rounded-md;
+  }
+  
+  .swiper-scrollbar-drag {
+    @apply bg-primary-green rounded-md;
+  }
+  

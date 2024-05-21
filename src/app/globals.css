@@ -37,10 +37,23 @@
     @apply font-semibold text-base;
   } */
 
+  /* Swiper Scrollbar Styling */
+  .swiper-scrollbar {
+    background: #e0e0e0; /* Background color of the scrollbar track */
+    height: 10px; /* Height of the scrollbar */
+    border-radius: 5px; /* Rounded corners */
+  }
+
+  .swiper-scrollbar-drag {
+    background: #007aff; /* Color of the draggable scrollbar thumb */
+    border-radius: 5px; /* Rounded corners */
+  }
+
+
 }
 
 @layer components {
   .overlay {
-    @apply absolute w-full h-full inset-0 bg-blend-darken bg-black bg-opacity-30
+    @apply absolute w-full h-full inset-0 bg-blend-darken 
   }
 }

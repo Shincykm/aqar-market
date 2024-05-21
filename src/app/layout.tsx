@@ -4,6 +4,11 @@ import { chillax, objective, satoshi } from "@/lib/fonts";
 import Footer from "@/sections/footer/Footer";
 import Navbar from "@/sections/navigation/Navbar";
 
+// import function to register Swiper custom elements
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+register();
+
 
 export const metadata: Metadata = {
   title: 'Aqar Market',

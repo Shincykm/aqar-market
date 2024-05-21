@@ -1,13 +1,18 @@
 import Image from 'next/image'
 import React from 'react'
 import RoundLinks from '../Links/RoundLinks'
+import { AGENTS_DETAILS } from '@/constants/constants'
 
-const AgentCards = ({agentData}) => {
+
+const AgentCards = (agentId) => {
+    // const agentData = AGENTS_DETAILS.filter(detail => (detail.id === agentId));
+    const agentData = AGENTS_DETAILS[0];
+
     
   return (
     <div className="flex items-center pt-4">
         <div className="flex-shrink-0">
-            <Image className="rounded-full" width={56} height={56} src={agentData.imageUrl} alt={agentData.agentName} />
+            <Image className="rounded-full w-auto h-auto" width={56} height={56} src={agentData.imageUrl} alt={agentData.agentName}/>
         </div>
         <div className="flex-1 min-w-0 ms-4 font-objective">
             <p className="text-sm text-gray-300">

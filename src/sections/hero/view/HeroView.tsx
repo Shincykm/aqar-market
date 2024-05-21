@@ -10,7 +10,7 @@ const HeroView = () => {
       <div className="relative max-h-[600px] overflow-hidden">
         {/* Video Component */}
         <Video src={"videos/aqar-video.mp4"} height="600px" />
-        <div className="overlay"></div>
+        <div className="overlay bg-black bg-opacity-30"></div>
 
         <div className="absolute top-2 md:top-1/4 px-2 md:px-30">
           <div className="text-white">
