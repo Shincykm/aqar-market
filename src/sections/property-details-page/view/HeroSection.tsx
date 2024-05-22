@@ -21,10 +21,10 @@ const HeroSection = () => {
         <Swiper 
           navigation={true}
           modules={[Navigation, Autoplay]}
-          autoplay={{
-            delay: 1500,
-            disableOnInteraction: false,
-          }}
+          // autoplay={{
+          //   delay: 2500,
+          //   disableOnInteraction: false,
+          // }}
         >
           {HERO_IMAGES.map((img, index) => (
             <SwiperSlide key={index}>

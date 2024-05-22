@@ -9,7 +9,7 @@ const PropertyDetailsSection = (propertyId) => {
   return (
     <div className="flex flex-col">
       <div className="flex-2">
-          <h1>{}</h1>
+          <h1>adsfsdfsdf</h1>
       </div>
       <div className="flex-1"></div>
     </div>
