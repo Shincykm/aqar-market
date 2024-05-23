@@ -1,11 +1,12 @@
+'use client'
+import Link from 'next/link'
+import Image from 'next/image'
 import Title from '../Title'
 import { AgentCards, Cards, Carousel, Container, CustomSwiper } from '@/components/shared'
 import { AGENTS_DETAILS, PROPERTY_CATEGORIES } from '@/constants/constants'
-import Link from 'next/link';
-import Image from 'next/image';
 
 const  NewProjects = () => {
-
+    
   const renderCardBody = (property, link)=>{
     return (
       <>
@@ -50,8 +51,8 @@ const  NewProjects = () => {
   }
 
   return (
-   <>
-     <Container className='mt-13 mb-4 px-30'>
+   <section className='home-page'>
+     <Container className='mb-4 px-30'>
       <div className='md:mb-10'>
         <Title title={"New Projects"} 
         description={"We have a magnificent selection of upcoming and new projects that will open your eyes to the future’s potential. These properties make tomorrow worth waiting for."} />
@@ -69,7 +70,13 @@ const  NewProjects = () => {
         </Cards>
       ))}
     </CustomSwiper>
-   </>
+
+    <div className="flex items-center justify-between description px-30 pt-20">
+        <p>Why not explore all of the communities on offer and find the lifestyle of your dreams?</p>
+
+        <Link href={"#"} className='btn-round'><p>See More</p></Link>
+    </div>
+   </section>
   )
 }
 
