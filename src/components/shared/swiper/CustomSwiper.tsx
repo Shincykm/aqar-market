@@ -9,15 +9,15 @@ import 'swiper/css/autoplay';
 import 'swiper/css/scrollbar';
 import './swiperStyle.css';
 
-const CustomSwiper = ({scrollbar=true, children, slidesPerView=3}) => {
+const CustomSwiper = ({scrollbar=true, children, slidesPerView=3, spaceBetween=10}) => {
   const [swiper, setSwiper] = useState(null);
   const modulesArray = scrollbar ? [Autoplay, Scrollbar] : [Autoplay];
 
   return (
-      <div className= "ml-30 flex items-center overflow-visible">
+      <div className= "pl-30 overflow-visible ">
           <Swiper
             slidesPerView={'auto'}
-            spaceBetween={10}
+            spaceBetween={spaceBetween}
             loop={true}
             // autoplay={{
             //   delay: 2500,
@@ -35,25 +35,26 @@ const CustomSwiper = ({scrollbar=true, children, slidesPerView=3}) => {
                 spaceBetween:10,
             },
             768: {
-                slidesPerView: 2,
+                slidesPerView: 1,
                 spaceBetween:20,
             },
             1024: {
                 slidesPerView: slidesPerView-1,
-                spaceBetween:20,
+                // spaceBetween:spaceBetween,
             },
             1440: {
                 slidesPerView: slidesPerView,
-                spaceBetween:30,
+                // spaceBetween:spaceBetween,
             },
             1500: {
                 slidesPerView: (slidesPerView+1) ,
-                spaceBetween:30,
+                spaceBetween:20,
             },
 
             2000: {
-              slidesPerView: (slidesPerView+2),
-              spaceBetween:40,
+              slidesPerView: (slidesPerView+1),
+              spaceBetween:20,
+
           },
             }}
           >

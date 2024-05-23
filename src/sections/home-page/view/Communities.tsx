@@ -1,76 +1,121 @@
-import Title from '../Title'
-import { AgentCards, Cards, Carousel, Container, CustomSwiper } from '@/components/shared'
-import { AGENTS_DETAILS, PROPERTY_CATEGORIES } from '@/constants/constants'
-import Link from 'next/link';
-import Image from 'next/image';
+import Title from "../Title";
+import { Cards, Container, CustomSwiper } from "@/components/shared";
+import Image from "next/image";
+import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
 
-const  Communities = () => {
-
-  const renderCardBody = (property, link)=>{
-    return (
-      <>
-          {/* Card body */}
-      <Link href={link}>
-      {property?.property_type && (<div className="overlay p-6 bg-transparent max-w-[400px]">
-        <div className="bg-primary-blue max-w-max px-4 py-2 rounded-lg">
-         <p className='text-white text-xs'>{property?.property_type}</p>
-        </div>
-      </div>)}
-      
-      <div className="flex flex-col gap-3 py-4 border-b-[1px] border-secondary-gray">
-        <h1 className='text-xl text-secondary-blue font-medium'>{property?.name_en}</h1>
-        <p className='font-satoshi text-primary-blue'>Location: {property?.address}</p>
-        <p className='text-primary-green text-lg font-medium'>From AED {property?.amount}</p>
-
-        <div className="flex font-normal gap-4">
-          <div className="flex gap-1">
-            <Image src="/icons/ic_link.svg" width={16} height={16} alt={`area-${property?.size_sqft}`} className="w-4 h-4"/>
-            <span className='text-xs'>{`${property?.size_sqft || 0} Sq.Ft`}</span>
-          </div>
-          <div className="flex gap-1">
-            <Image
-              src="/icons/ic_bed.svg"
-              width={16}
-              height={16}
-              alt={`bed-${property?.count_bedrooms}`}
-              className="w-5 h-5"
-            />
-            <span className="text-xs">{`${property?.count_bathrooms || 0} bedrooms`}</span>
-          </div>
-
-          <div className="flex gap-1">
-            <Image src="/icons/ic_accessories.svg" width={16} height={16} alt={`bathrooms-${property?.accessories}`} className="w-4 h-4" />
-            <span className='text-xs'>{`${property?.count_bathrooms || 0} bathrooms`}</span>
-          </div>
-        </div>
-      </div>
-      </Link>
-      </>
-    );
-  }
+const Communities = () => {
+  const communities = [
+    {
+      id: 1,
+      beds: "2-5",
+      title: "Example Community One",
+      picture: {
+        url: "/images/properties/communities-1.jpeg",
+      },
+      price: "10,00000,00",
+    },
+    {
+      id: 2,
+      beds: "2-5",
+      title: "Example Community Two",
+      picture: {
+        url: "/images/properties/communities-2.jpeg",
+      },
+      price: "15,00000,00",
+    },
+    {
+      id: 3,
+      beds: "2-5",
+      title: "Example Community Three",
+      picture: {
+        url: "/images/properties/communities-1.jpeg",
+      },
+      price: "20,00000,00",
+    },
+  ];
 
   return (
-    <section className='home-page'>
-     <Container className='mt-13 mb-4 px-30'>
-      <div className='md:mb-10'>
-        <Title title={"Communities"} 
-        description={"We have a magnificent selection of upcoming and new projects that will open your eyes to the future’s potential. These properties make tomorrow worth waiting for."} />
-      </div>
-    </Container>
+    <section className="home-page">
+      <Container className="mt-13 mb-4 px-30">
+        <div className="md:mb-10">
+          <Title
+            title={"Communities"}
+            description={
+              "We have a magnificent selection of upcoming and new projects that will open your eyes to the future’s potential. These properties make tomorrow worth waiting for."
+            }
+          />
+        </div>
+      </Container>
 
-    {/* Cards */} 
-    <CustomSwiper scrollbar={true} slidesPerView={2}>
-      {PROPERTY_CATEGORIES.map((item, index)=>(
-        <Cards key={index} width={"w-full"}>
-          <Carousel images={item?.pictures}/> 
-          {renderCardBody(item,`/properties/property-details/${item.id}`)}
-          {/* <AgentCards agentData={item.agent} /> */}
-          <AgentCards agentData={AGENTS_DETAILS[0]} />
-        </Cards>
-      ))}
-    </CustomSwiper>
-   </section>
-  )
-}
+      {/* Cards */}
+      <CustomSwiper scrollbar={true} slidesPerView={2} spaceBetween={30}>
+        {communities?.map((community, index) => (
+          <div key={index} className="rounded-[20px] overflow-hidden">
+
+            <div className="relative w-full h-[344px] rounded-2xl overflow-hidden">
+              <Image
+                src={"/images/properties/communities-1.jpeg"}
+                alt="Description of image"
+                layout="fill"
+                objectFit="cover" // This can be 'contain', 'cover', 'fill', 'none', or 'scale-down'
+              />
+            </div>
+
+            <div className="overlay rounded-[20px] bg-black bg-opacity-40 text-white">
+              <div className="absolute top-[45%] p-6 flex flex-col justify-center gap-2 w-full ">
+                <p className="text-[19px] font-normal">{`From ${community?.price} AED`}</p>
+                <div className="flex items-center gap-2">
+                  <Image
+                    src="/icons/ic_bed_white.svg"
+                    width={16}
+                    height={16}
+                    alt={`bed-`}
+                    className="w-5 h-5"
+                  />
+                  <span className="text-xs">{`${
+                    community?.beds || 0
+                  } Bed Apartments`}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Image
+                    src="/icons/ic_shower_white.svg"
+                    width={16}
+                    height={16}
+                    alt={`bed-`}
+                    className="w-5 h-5"
+                  />
+                  <span className="text-xs">{`${
+                    community?.beds || 0
+                  } Bed Duplexes`}</span>
+                </div>
+                <div className="flex justify-between items-center ">
+                  <h1 className="text-[37px] font-medium">
+                    {community?.title}
+                  </h1>
+                  <Link href={"#"} className="bg-primary-green rounded-xl py-3 px-6">
+                    <FaArrowRight />
+                  </Link>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        ))}
+      </CustomSwiper>
+
+      <div className="flex items-center justify-between description px-30 pt-20">
+        <p>
+          Why not explore all of the communities on offer and find the lifestyle
+          of your dreams?
+        </p>
+
+        <Link href={"#"} className="btn-round">
+          <p>See More</p>
+        </Link>
+      </div>
+    </section>
+  );
+};
 
 export default Communities;

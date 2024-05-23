@@ -5,9 +5,9 @@
     @apply bg-gray-300 h-[2px] rounded-lg;
   }
 
-  .swiper-scrollbar.swiper-scrollbar-horizontal{
+  /* .swiper-scrollbar.swiper-scrollbar-horizontal{
     @apply max-w-[1440px];
-  }
+  } */
 
   .swiper-scrollbar-drag {
     @apply bg-primary-green h-[6px] rounded-lg;

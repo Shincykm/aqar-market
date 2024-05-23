@@ -60,9 +60,9 @@ const  NewProjects = () => {
     </Container>
 
     {/* Cards */} 
-    <CustomSwiper scrollbar={true} slidesPerView={2}>
+    <CustomSwiper scrollbar={true} slidesPerView={2} spaceBetween={20}>
       {PROPERTY_CATEGORIES.map((item, index)=>(
-        <Cards key={index} width={"w-full"}>
+        <Cards key={index} width={"max-w-[600px]"}>
           <Carousel images={item?.pictures}/> 
           {renderCardBody(item,`/properties/property-details/${item.id}`)}
           {/* <AgentCards agentData={item.agent} /> */}

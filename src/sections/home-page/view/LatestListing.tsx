@@ -80,9 +80,9 @@ const  LatestListing = () => {
     </Container>
 
     {/* Cards */} 
-    <CustomSwiper scrollbar={false} slidesPerView={3}>
+    <CustomSwiper scrollbar={false} slidesPerView={3} spaceBetween={10}>
       {PROPERTY_CATEGORIES.map((item, index)=>(
-        <Cards key={index} width='max-w-[398px]'>
+        <Cards key={index} width='max-w-[400px]'>
           <Carousel images={item?.pictures}/> 
           {/* {renderCardBody(item,`/properties/property-details/${item.id}`)} */}
           {renderCardBody(item,`#`)}
