@@ -1,31 +1,10 @@
-"use client";
-import React, { useEffect, useState } from 'react'
 import Title from '../Title'
 import { AgentCards, Cards, Carousel, Container, CustomSwiper } from '@/components/shared'
 import { AGENTS_DETAILS, PROPERTY_CATEGORIES } from '@/constants/constants'
-import axios from 'axios';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const  LatestListing = () => {
-  const [propertyList, setPropertyList] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(()=>{
-    const fetchPropertyList = async () => {
-      setLoading(true);
-      try {
-        const res = await axios.get(`https://aqar.api.mvp-apps.ae/api/admin/property/getPropertyList`);
-        setPropertyList(res.data?.data);
-      } catch (error) {
-        console.log(error,"==getpropertylist");
-      } finally{
-        setLoading(false);
-      }
-    };
-
-    fetchPropertyList();
-  }, []); 
+const  NewProjects = () => {
 
   const renderCardBody = (property, link)=>{
     return (
@@ -74,18 +53,17 @@ const  LatestListing = () => {
    <>
      <Container className='mt-13 mb-4 px-30'>
       <div className='md:mb-10'>
-        <Title title={"Latest Listing"} 
+        <Title title={"New Projects"} 
         description={"We have a magnificent selection of upcoming and new projects that will open your eyes to the future’s potential. These properties make tomorrow worth waiting for."} />
       </div>
     </Container>
 
     {/* Cards */} 
-    <CustomSwiper scrollbar={false} slidesPerView={3}>
+    <CustomSwiper scrollbar={true} slidesPerView={2}>
       {PROPERTY_CATEGORIES.map((item, index)=>(
-        <Cards key={index} width='max-w-[398px]'>
+        <Cards key={index} width={"w-full"}>
           <Carousel images={item?.pictures}/> 
-          {/* {renderCardBody(item,`/properties/property-details/${item.id}`)} */}
-          {renderCardBody(item,`#`)}
+          {renderCardBody(item,`/properties/property-details/${item.id}`)}
           {/* <AgentCards agentData={item.agent} /> */}
           <AgentCards agentData={AGENTS_DETAILS[0]} />
         </Cards>
@@ -95,4 +73,4 @@ const  LatestListing = () => {
   )
 }
 
-export default LatestListing;
+export default NewProjects;

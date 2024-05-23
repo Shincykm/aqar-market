@@ -2,10 +2,10 @@
 
 /* Swiper Scrollbar Styling */
 .swiper-scrollbar {
-    @apply bg-gray-300 h-2 rounded-md;
+    @apply bg-gray-300 h-[2px] rounded-lg;
   }
   
   .swiper-scrollbar-drag {
-    @apply bg-primary-green rounded-md;
+    @apply bg-primary-green h-[6px] rounded-lg;
   }
   

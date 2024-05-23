@@ -1,13 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
 import RoundLinks from '../Links/RoundLinks'
-import { AGENTS_DETAILS } from '@/constants/constants'
 
-
-const AgentCards = (agentId) => {
-    // const agentData = AGENTS_DETAILS.filter(detail => (detail.id === agentId));
-    const agentData = AGENTS_DETAILS[0];
-
+const AgentCards = ({agentData}) => {
     
   return (
     <div className="flex items-center pt-4">

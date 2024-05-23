@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from 'react';
 
-const Carousel: any = (images) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+const Carousel: any = ({images}) => {
+  const [activeIndex, setActiveIndex] = useState(0);  
 
   // const handlePrev = () => {
   //   setActiveIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
@@ -19,26 +19,28 @@ const Carousel: any = (images) => {
   return (
     <div id="indicators-carousel" className="relative w-full" data-carousel="static">
       {/* Carousel wrapper */}
-      <div className="relative h-56 overflow-hidden rounded-lg md:h-64">
-        {images.images.map((item, index) => (
-          <div
-            key={index}
-            className={`absolute block w-full h-full transition-transform duration-700 ease-in-out ${
-              index === activeIndex ? 'block' : 'hidden'
-            }`}
-            data-carousel-item={index === activeIndex ? 'active' : undefined}
-          >
-            <img
-              src={item.url}
-              className="absolute block w-full h-full max-w-[400px] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              alt={`Slide ${index + 1}`}
-            />
-          </div>
-        ))}
+      <div className="relative w-fullh-56 overflow-hidden rounded-lg md:h-64">
+        {images.map((item, index) => (
+              <div
+                key={index}
+                className={`absolute block w-full h-full transition-transform duration-700 ease-in-out ${
+                  index === activeIndex ? 'block' : 'hidden'
+                }`}
+                data-carousel-item={index === activeIndex ? 'active' : undefined}
+              >
+                <img
+                  src={item.url}
+                  className="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                  alt={`Slide ${index + 1}`}
+                  loading='lazy'
+                />
+              </div>
+            ))
+        }
 
       {/* Slider indicators */}
         <div className="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
-        {images.images.map((_, index) => (
+        {images.map((_, index) => (
           <button
             key={index}
             type="button"
