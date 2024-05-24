@@ -52,7 +52,6 @@ const Communities = () => {
       <CustomSwiper scrollbar={true} slidesPerView={2} spaceBetween={30}>
         {communities?.map((community, index) => (
           <div key={index} className="rounded-[20px] overflow-hidden">
-
             <div className="relative w-full h-[344px] rounded-2xl overflow-hidden">
               <Image
                 src={"/images/properties/communities-1.jpeg"}
@@ -93,11 +92,13 @@ const Communities = () => {
                   <h1 className="text-[37px] font-medium">
                     {community?.title}
                   </h1>
-                  <Link href={"#"} className="bg-primary-green rounded-xl py-3 px-6">
+                  <Link
+                    href={"#"}
+                    className="bg-primary-green rounded-xl py-3 px-6"
+                  >
                     <FaArrowRight />
                   </Link>
                 </div>
-                
               </div>
             </div>
           </div>
@@ -110,7 +111,7 @@ const Communities = () => {
           of your dreams?
         </p>
 
-        <Link href={"#"} className="btn-round">
+        <Link href={"#"} className="btn-round border-primary-blue">
           <p>See More</p>
         </Link>
       </div>

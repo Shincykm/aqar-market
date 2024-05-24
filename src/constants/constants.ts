@@ -24,7 +24,7 @@ export const NAV_LINKS = [
 export const IMAGES = [
   {
     id:1, 
-    url : '/properties/Mask.png'
+    url : '/properties/Mask.jpeg'
   },
   {
     id:2, 
@@ -32,7 +32,7 @@ export const IMAGES = [
   },
   {
     id:3, 
-    url : '/properties/Mask.png'
+    url : '/properties/Mask.jpeg'
   }
 ];
 
@@ -71,7 +71,7 @@ export const PROPERTY_CATEGORIES = [
     "pictures" : [
       {
         id:1, 
-        url : '/images/properties/Mask.png'
+        url : '/images/properties/Mask.jpeg'
       },
       {
         id:2, 
@@ -79,7 +79,7 @@ export const PROPERTY_CATEGORIES = [
       },
       {
         id:3, 
-        url : '/images/properties/Mask.png'
+        url : '/images/properties/Mask.jpeg'
       }
     ]
   },
@@ -117,7 +117,7 @@ export const PROPERTY_CATEGORIES = [
     "pictures" : [
       {
         id:1, 
-        url : '/images/properties/Mask.png'
+        url : '/images/properties/Mask.jpeg'
       },
       {
         id:2, 
@@ -125,7 +125,7 @@ export const PROPERTY_CATEGORIES = [
       },
       {
         id:3, 
-        url : '/images/properties/Mask.png'
+        url : '/images/properties/Mask.jpeg'
       }
     ]
   },
@@ -163,7 +163,7 @@ export const PROPERTY_CATEGORIES = [
     "pictures" : [
       {
         id:1, 
-        url : '/images/properties/Mask.png'
+        url : '/images/properties/Mask.jpeg'
       },
       {
         id:2, 
@@ -171,7 +171,7 @@ export const PROPERTY_CATEGORIES = [
       },
       {
         id:3, 
-        url : '/images/properties/Mask.png'
+        url : '/images/properties/Mask.jpeg'
       }
     ]
   },
@@ -209,7 +209,7 @@ export const PROPERTY_CATEGORIES = [
     "pictures" : [
       {
         id:1, 
-        url : '/images/properties/Mask.png'
+        url : '/images/properties/Mask.jpeg'
       },
       {
         id:2, 
@@ -217,7 +217,7 @@ export const PROPERTY_CATEGORIES = [
       },
       {
         id:3, 
-        url : '/images/properties/Mask.png'
+        url : '/images/properties/Mask.jpeg'
       }
     ]
   },
@@ -255,7 +255,7 @@ export const PROPERTY_CATEGORIES = [
     "pictures" : [
       {
         id:1, 
-        url : '/images/properties/Mask.png'
+        url : '/images/properties/Mask.jpeg'
       },
       {
         id:2, 
@@ -263,7 +263,7 @@ export const PROPERTY_CATEGORIES = [
       },
       {
         id:3, 
-        url : '/images/properties/Mask.png'
+        url : '/images/properties/Mask.jpeg'
       }
     ]
   },
@@ -301,7 +301,7 @@ export const PROPERTY_CATEGORIES = [
     "pictures" : [
       {
         id:1, 
-        url : '/images/properties/Mask.png'
+        url : '/images/properties/Mask.jpeg'
       },
       {
         id:2, 
@@ -309,7 +309,7 @@ export const PROPERTY_CATEGORIES = [
       },
       {
         id:3, 
-        url : '/images/properties/Mask.png'
+        url : '/images/properties/Mask.jpeg'
       }
     ]
   },
@@ -348,7 +348,7 @@ export const PROPERTY_CATEGORIES = [
     "pictures" : [
       {
         id:1, 
-        url : '/images/properties/Mask.png'
+        url : '/images/properties/Mask.jpeg'
       },
       {
         id:2, 
@@ -356,7 +356,7 @@ export const PROPERTY_CATEGORIES = [
       },
       {
         id:3, 
-        url : '/images/properties/Mask.png'
+        url : '/images/properties/Mask.jpeg'
       }
     ]
   },
@@ -447,4 +447,22 @@ export const CITY_DATA = [
       imageurl : "/images/cities/rak_city.jpeg",
       link : "#"
   }
-]
+];
+
+export const DEVELOPER_DATA = [
+  {
+      "id":1,
+      "name_en": "shobha reality",
+      "icon" : '/icons/developer_icon.png' 
+  },
+  {
+      "id":2,
+      "name_en": "shobha reality",
+      "icon" : '/icons/developer_icon.png' 
+  },
+  {
+      "id":3,
+      "name_en": "shobha reality",
+      "icon" : '/icons/developer_icon.png' 
+  },
+];

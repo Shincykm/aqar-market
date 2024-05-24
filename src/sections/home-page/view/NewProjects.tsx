@@ -2,8 +2,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Title from '../Title'
-import { AgentCards, Cards, Carousel, Container, CustomSwiper } from '@/components/shared'
-import { AGENTS_DETAILS, PROPERTY_CATEGORIES } from '@/constants/constants'
+import { Cards, Carousel, Container, CustomSwiper } from '@/components/shared'
+import { PROPERTY_CATEGORIES, DEVELOPER_DATA } from '@/constants/constants'
+import DeveloperCards from '@/components/shared/cards/DeveloperCards'
 
 const  NewProjects = () => {
     
@@ -65,8 +66,7 @@ const  NewProjects = () => {
         <Cards key={index} width={"max-w-[600px]"}>
           <Carousel images={item?.pictures}/> 
           {renderCardBody(item,`/properties/property-details/${item.id}`)}
-          {/* <AgentCards agentData={item.agent} /> */}
-          <AgentCards agentData={AGENTS_DETAILS[0]} />
+          <DeveloperCards developerData={DEVELOPER_DATA[0]} />
         </Cards>
       ))}
     </CustomSwiper>
@@ -74,7 +74,7 @@ const  NewProjects = () => {
     <div className="flex items-center justify-between description px-30 pt-20">
         <p>Why not explore all of the communities on offer and find the lifestyle of your dreams?</p>
 
-        <Link href={"#"} className='btn-round'><p>See More</p></Link>
+        <Link href={"#"} className='btn-round border-primary-blue'><p>See More</p></Link>
     </div>
    </section>
   )

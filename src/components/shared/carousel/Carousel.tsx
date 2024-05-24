@@ -34,6 +34,7 @@ const Carousel: any = ({images}) => {
                   alt={`Slide ${index + 1}`}
                   loading='lazy'
                 />
+                
               </div>
             ))
         }

@@ -7,7 +7,7 @@ import { CITY_DATA } from "@/constants/constants";
 const Cities = () => {
   return (
     <section className="home-page">
-      <Container className="mt-13 mb-4 px-30">
+      <Container className="px-30">
         <div className="md:mb-10">
           <Title
             title={"Available in Numerous Cities"}
@@ -33,31 +33,48 @@ const Cities = () => {
             </div>
           ))}
         </div>
-      </Container>
+        <div className="flex items-center justify-between description pt-20">
+          <p>
+            Why not explore all of the communities on offer and find the
+            lifestyle of your dreams?
+          </p>
 
-      <div className="flex items-center justify-between description px-30 pt-20">
-        <p>
-          Why not explore all of the communities on offer and find the lifestyle
-          of your dreams?
-        </p>
-
-        <Link href={"#"} className="btn-round">
-          <p>See More</p>
-        </Link>
-      </div>
-
-      <div className="relative px-30 max-w-[1200px] h-[512px]">
-      <div className="overlay left-[120px] mt-20 rounded-2xl overflow-hidden">
-        <div className="relative w-full h-full overflow-hidden">
-          <Image
-            src={"/images/cities/burj_khalifa.jpeg"}
-            alt="Burj Khalifa"
-            layout="fill"
-            objectFit="cover"
-          />
+          <Link href={"#"} className="btn-round border-primary-blue">
+            <p>See More</p>
+          </Link>
         </div>
-      </div>
-      </div>
+
+        <div className="relative h-[512px]">
+          <div className="overlay mt-20 rounded-2xl overflow-hidden">
+            <div className="relative w-full h-full overflow-hidden">
+              <Image
+                src={"/images/cities/burj_khalifa.jpeg"}
+                alt="Burj Khalifa"
+                layout="fill"
+                objectFit="cover"
+                objectPosition="50% 85%"
+              />
+            </div>
+            <div className="overlay bg-black bg-opacity-45 text-white">
+              <div className="flex item-center  flex-col gap-7 w-1/2 pl-20 pt-28">
+                <h1 className="text-40px">Lorem ipsum dolor</h1>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <Link
+                  href={"#"}
+                  className="btn-round border-white text-center max-w-56"
+                >
+                  See More
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
     </section>
   );
 };

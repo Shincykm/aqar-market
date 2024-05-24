@@ -55,7 +55,7 @@
   }
 
   .btn-round{
-    @apply px-10 py-2 rounded-[20px] border-[1px] border-primary-blue;
+    @apply px-10 py-2 rounded-[20px] border-[1px];
   }
 
 }
