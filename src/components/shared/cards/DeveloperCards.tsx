@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import RoundLinks from '../Links/RoundLinks'
+import RoundLinks from '../links/RoundLinks'
 import Link from 'next/link'
 
 const DeveloperCards = ({developerData}) => {
@@ -11,9 +11,10 @@ const DeveloperCards = ({developerData}) => {
             <div className="relative w-14 h-14 border-[1px] border-black rounded-full overflow-hidden">
                 <Image
                     src={developerData?.icon}
-                    layout='fill'
-                    objectFit='cover'
+                    fill
+                    style={{ objectFit: 'cover'}}
                     alt={developerData.name_en}
+                    sizes="56px" 
                 />
             </div>
         </div>

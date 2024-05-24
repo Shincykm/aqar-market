@@ -1,13 +1,12 @@
 import { Tab, Tabs } from "@/components/shared";
 import { Video } from "@/components/shared";
-import HeroContainer from "@/sections/hero/HeroContainer";
 import HeroTitle from "@/sections/hero/HeroTitle";
-import SearchForm from "@/sections/home-page/SearchForm";
+import SearchForm from "@/sections/homePage/SearchForm";
+import SearchForm1 from "../SearchForm1";
 
 const HomeHero = () => {
   return (
-    <HeroContainer>
-      <div className="relative max-h-[600px] overflow-hidden">
+      <div className="relative max-h-[600px]">
         {/* Video Component */}
         <Video src={"videos/aqar-video.mp4"} height="600px" />
         <div className="overlay bg-black bg-opacity-30"></div>
@@ -25,14 +24,20 @@ const HomeHero = () => {
             />
 
             {/* Search */}
+            {/* <Tabs>
+              <Tab label="RENT"><SearchForm type ="rent"/></Tab>
+              <Tab label="BUY"><SearchForm type ="buy"/></Tab>
+            </Tabs> */}
+
+
+            {/* Testing */}
             <Tabs>
-              <Tab label="RENT"><SearchForm /></Tab>
-              <Tab label="BUY"><SearchForm /></Tab>
+              <Tab label="RENT"><SearchForm type ="rent"/></Tab>
+              <Tab label="BUY"><SearchForm type ="buy"/></Tab>
             </Tabs>
           </div>
         </div>
       </div>
-    </HeroContainer>
   );
 };
 

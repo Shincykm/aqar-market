@@ -1,8 +1,8 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-const Carousel: any = ({images}) => {
-  const [activeIndex, setActiveIndex] = useState(0);  
+const Carousel: any = ({ images }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
 
   // const handlePrev = () => {
   //   setActiveIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
@@ -17,42 +17,57 @@ const Carousel: any = ({images}) => {
   };
 
   return (
-    <div id="indicators-carousel" className="relative w-full" data-carousel="static">
+    <div
+      id="indicators-carousel"
+      className="relative w-full"
+      data-carousel="static"
+    >
       {/* Carousel wrapper */}
       <div className="relative w-fullh-56 overflow-hidden rounded-lg md:h-64">
-        {images.map((item, index) => (
-              <div
-                key={index}
-                className={`absolute block w-full h-full transition-transform duration-700 ease-in-out ${
-                  index === activeIndex ? 'block' : 'hidden'
-                }`}
-                data-carousel-item={index === activeIndex ? 'active' : undefined}
-              >
-                <img
-                  src={item.url}
-                  className="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                  alt={`Slide ${index + 1}`}
-                  loading='lazy'
-                />
-                
-              </div>
-            ))
-        }
-
-      {/* Slider indicators */}
-        <div className="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            type="button"
-            className={`w-2 h-2 rounded-full ${index === activeIndex ? 'bg-white' : 'bg-white bg-opacity-35'}`}
-            aria-current={index === activeIndex ? 'true' : 'false'}
-            aria-label={`Slide ${index + 1}`}
-            onClick={() => handleIndicatorClick(index)}
-            data-carousel-slide-to={index}
+        {images.length > 0 ? (
+          images?.map((item, index) => (
+            <div
+              key={item.id}
+              className={`absolute block w-full h-full transition-transform duration-700 ease-in-out ${
+                index === activeIndex ? "block" : "hidden"
+              }`}
+              data-carousel-item={index === activeIndex ? "active" : undefined}
+            >
+              <img
+                src={
+                  item?.virtual_path
+                }
+                className="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt={`${item.alt_attribute}`}
+                loading="lazy"
+              />
+            </div>
+          ))
+        ) : (
+          <img
+            src={"/images/properties/no_image.jpg"}
+            className="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+            alt={"image missing"}
+            loading="lazy"
           />
-        ))}
-      </div>
+        )}
+
+        {/* Slider indicators */}
+        <div className="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
+          {images?.map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              className={`w-2 h-2 rounded-full ${
+                index === activeIndex ? "bg-white" : "bg-white bg-opacity-35"
+              }`}
+              aria-current={index === activeIndex ? "true" : "false"}
+              aria-label={`Slide ${index + 1}`}
+              onClick={() => handleIndicatorClick(index)}
+              data-carousel-slide-to={index}
+            />
+          ))}
+        </div>
       </div>
 
       {/* <button

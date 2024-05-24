@@ -23,8 +23,9 @@ const Cities = () => {
                 <Image
                   src={item?.imageurl}
                   alt={item.city}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: 'cover'}}
+                  sizes="100%"
                 />
               </div>
               <h1 className="text-2xl font-medium text-primary-violet">
@@ -50,9 +51,8 @@ const Cities = () => {
               <Image
                 src={"/images/cities/burj_khalifa.jpeg"}
                 alt="Burj Khalifa"
-                layout="fill"
-                objectFit="cover"
-                objectPosition="50% 85%"
+                fill
+                style={{ objectFit: 'cover', objectPosition: '50% 80%' }}
               />
             </div>
             <div className="overlay bg-black bg-opacity-45 text-white">

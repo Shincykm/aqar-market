@@ -1,12 +1,11 @@
-import { HomeHero } from '@/sections/home-page/view';
-import BuyProperty from '@/sections/home-page/view/BuyProperty';
-import Cities from '@/sections/home-page/view/Cities';
-import Communities from '@/sections/home-page/view/Communities';
-import LatestListing from '@/sections/home-page/view/LatestListing';
-import NewProjects from '@/sections/home-page/view/NewProjects';
-
-export default function Home() {
-
+import { HomeHero } from '@/sections/homePage/view';
+import BuyProperty from '@/sections/homePage/view/BuyProperty';
+import Cities from '@/sections/homePage/view/Cities';
+import Communities from '@/sections/homePage/view/Communities';
+import LatestListing from '@/sections/homePage/view/LatestListing';
+import NewProjects from '@/sections/homePage/view/NewProjects';
+export default async function Home() {
+ 
   return (
     <main className="w-full">
           <HomeHero />

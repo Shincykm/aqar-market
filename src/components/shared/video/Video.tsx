@@ -6,7 +6,7 @@ const Video = ({ src, height="600px" }) => {
         loop
         muted
         playsInline
-        className={`w-full h-full object-cover pointer-events-none`}
+        className={`w-full max-h-[${height}] object-cover pointer-events-none`}
       >
         <source src={src} type="video/mp4" />
         Your browser does not support the video tag.

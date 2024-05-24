@@ -29,7 +29,7 @@ const Communities = () => {
       beds: "2-5",
       title: "Example Community Three",
       picture: {
-        url: "/images/properties/communities-1.jpeg",
+        url: "/images/properties/communities-2.jpeg",
       },
       price: "20,00000,00",
     },
@@ -54,10 +54,11 @@ const Communities = () => {
           <div key={index} className="rounded-[20px] overflow-hidden">
             <div className="relative w-full h-[344px] rounded-2xl overflow-hidden">
               <Image
-                src={"/images/properties/communities-1.jpeg"}
+                src={community.picture.url}
                 alt="Description of image"
-                layout="fill"
-                objectFit="cover" // This can be 'contain', 'cover', 'fill', 'none', or 'scale-down'
+                fill
+                style={{ objectFit: 'cover', objectPosition: 'center center' }}
+                sizes="100%"
               />
             </div>
 

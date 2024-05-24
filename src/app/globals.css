@@ -33,9 +33,9 @@
     align-items: center;
   }
 
-  /* .search-label{
-    @apply font-semibold text-base;
-  } */
+  .search-label{
+    @apply font-semibold text-base text-primary-blue;
+  }
 
 
 }
