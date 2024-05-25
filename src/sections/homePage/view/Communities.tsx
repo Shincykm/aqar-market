@@ -49,62 +49,64 @@ const Communities = () => {
       </Container>
 
       {/* Cards */}
-      <CustomSwiper scrollbar={true} slidesPerView={2} spaceBetween={30}>
+      <CustomSwiper scrollbar={true} slidesPerView={1.5} spaceBetween={30}>
         {communities?.map((community, index) => (
-          <div key={index} className="rounded-[20px] overflow-hidden">
-            <div className="relative w-full h-[344px] rounded-2xl overflow-hidden">
-              <Image
-                src={community.picture.url}
-                alt="Description of image"
-                fill
-                style={{ objectFit: 'cover', objectPosition: 'center center' }}
-                sizes="100%"
-              />
-            </div>
+          <Cards key={community?.id} propClass="w-full">
+            <div className="rounded-[20px] overflow-hidden">
+              <div className="relative w-full h-[344px] rounded-2xl overflow-hidden">
+                <Image
+                  src={community.picture.url}
+                  alt="Description of image"
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: 'center center' }}
+                  sizes="100%"
+                />
+              </div>
 
-            <div className="overlay rounded-[20px] bg-black bg-opacity-40 text-white">
-              <div className="absolute top-[30%] lg:top-[40%] p-6 flex flex-col justify-center gap-2 w-full ">
-                <p className="text-[19px] font-normal">{`From ${community?.price} AED`}</p>
-                <div className="flex items-center gap-2">
-                  <Image
-                    src="/icons/ic_bed_white.svg"
-                    width={16}
-                    height={16}
-                    alt={`bed-`}
-                    className="w-5 h-5"
-                  />
-                  <span className="text-xs">{`${community?.beds || 0
-                    } Bed Apartments`}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Image
-                    src="/icons/ic_shower_white.svg"
-                    width={16}
-                    height={16}
-                    alt={`bed-`}
-                    className="w-5 h-5"
-                  />
-                  <span className="text-xs">{`${community?.beds || 0
-                    } Bed Duplexes`}</span>
-                </div>
-                <div className="flex justify-between items-center ">
-
-                  <div className="text-lg md:text-2xl lg:text-3xl xl:text-40px 2xl:text-5xl leading-normal clamp-3">
-                    <h1 className="text-[37px] font-medium">
-                      {community?.title}
-                    </h1>
+              <div className="overlay rounded-[20px] bg-black bg-opacity-40 text-white">
+                <div className="absolute top-[30%] lg:top-[40%] p-6 flex flex-col justify-center gap-2 w-full ">
+                  <p className="text-[19px] font-normal">{`From ${community?.price} AED`}</p>
+                  <div className="flex items-center gap-2">
+                    <Image
+                      src="/icons/ic_bed_white.svg"
+                      width={16}
+                      height={16}
+                      alt={`bed-`}
+                      className="w-5 h-5"
+                    />
+                    <span className="text-xs">{`${community?.beds || 0
+                      } Bed Apartments`}</span>
                   </div>
+                  <div className="flex items-center gap-2">
+                    <Image
+                      src="/icons/ic_shower_white.svg"
+                      width={16}
+                      height={16}
+                      alt={`bed-`}
+                      className="w-5 h-5"
+                    />
+                    <span className="text-xs">{`${community?.beds || 0
+                      } Bed Duplexes`}</span>
+                  </div>
+                  <div className="flex justify-between items-center ">
 
-                  <Link
-                    href={"#"}
-                    className="bg-primary-green rounded-xl py-3 px-6"
-                  >
-                    <FaArrowRight />
-                  </Link>
+                    <div className="text-lg md:text-2xl lg:text-3xl xl:text-40px 2xl:text-5xl leading-normal clamp-3">
+                      <h1 className="text-[37px] font-medium">
+                        {community?.title}
+                      </h1>
+                    </div>
+
+                    <Link
+                      href={"#"}
+                      className="bg-primary-green rounded-xl py-3 px-6"
+                    >
+                      <FaArrowRight />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </Cards>
         ))}
       </CustomSwiper>
 

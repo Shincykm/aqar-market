@@ -24,9 +24,9 @@ export const Tabs: React.FC<TabsProps> = ({ children }) => {
   return (
     <>
       <div className="mx-6 mt-20 flex max-w-max overflow-hidden rounded-t-lg bg-red-100">
-        {childArray.map((child) => (
+        {childArray.map((child,index) => (
           <Button
-            key={child.props?.label}
+            key={index || child.props?.label}
             className={`${
               activeTab === child.props.label
                 ? "text-white bg-primary-green"
@@ -39,10 +39,10 @@ export const Tabs: React.FC<TabsProps> = ({ children }) => {
         ))}
       </div>
 
-      {childArray.map((child) => {
+      {childArray.map((child,index) => {
         if (child.props.label === activeTab) {
           return (
-            <div key={child.props.label} className="">
+            <div key={index} className="">
               {child.props.children}
             </div>
           );

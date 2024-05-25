@@ -40,21 +40,20 @@ const CustomSwiper = ({scrollbar=true, children, slidesPerView=3, spaceBetween=1
             },
             1024: {
                 slidesPerView: slidesPerView-1,
-                // spaceBetween:spaceBetween,
+                spaceBetween:20,
             },
             1440: {
                 slidesPerView: slidesPerView,
-                // spaceBetween:spaceBetween,
+                spaceBetween:spaceBetween,
             },
             1500: {
                 slidesPerView: (slidesPerView+1) ,
-                spaceBetween:20,
+                spaceBetween:spaceBetween,
             },
 
             2000: {
-              slidesPerView: (slidesPerView+1),
-              spaceBetween:20,
-
+              slidesPerView: (slidesPerView+2),
+              spaceBetween:spaceBetween,
           },
             }}
           >

@@ -108,10 +108,9 @@ const LatestListing = async () => {
       </Container>
 
       {/* Cards */}
-      <CustomSwiper scrollbar={false} slidesPerView={3} spaceBetween={30}>
+      <CustomSwiper scrollbar={false} slidesPerView={3.5} spaceBetween={30}>
         {properties?.map((property) => (
-          // <Cards key={property?.id} width="max-w-[400px]">
-          <Cards key={property?.id} width="">
+          <Cards key={property?.id} width="max-w-[400px]">
             <Carousel images={property.pictures} />
             {renderCardBody(property)}
             {property?.agents[0] && <AgentCards agentData={property?.agents[0]} />}

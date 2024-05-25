@@ -18,7 +18,7 @@ const Cities = () => {
         </div>
         <div className="flex items-center justify-stretch gap-6 mt-20">
           {CITY_DATA?.map((item, index) => (
-            <div className="flex flex-col gap-5 w-full">
+            <div key ={index} className="flex flex-col gap-5 w-full">
               <div className="relative h-[240px] rounded-2xl overflow-hidden">
                 <Image
                   src={item?.imageurl}
