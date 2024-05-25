@@ -4,7 +4,7 @@ export {default as Video} from './video/Video';
 export {Tabs, Tab} from './tabs/Tabs';
 export {default as Container} from './container/Container';
 export {default as Carousel} from './carousel/Carousel';
-export {default as RoundLinks} from './links/RoundLinks';
+export {default as RoundLinks} from './Links/RoundLinks';
 export {default as Cards} from './cards/Cards';
 export {default as AgentCards} from './cards/AgentCards';
 export {default as DeveloperCards} from './cards/DeveloperCards';
