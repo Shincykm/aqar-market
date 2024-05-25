@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Title from "../Title";
 import {
   AgentCards,
@@ -7,9 +6,6 @@ import {
   Container,
   CustomSwiper,
 } from "@/components/shared";
-import { AGENTS_DETAILS, PROPERTY_CATEGORIES } from "@/constants/constants";
-import axios from "axios";
-import Link from "next/link";
 import Image from "next/image";
 
 async function fetchProperties() {
@@ -26,27 +22,11 @@ async function fetchProperties() {
 const LatestListing = async () => {
   const { data: properties } = await fetchProperties();
 
-  return (
-    <>
-      <Container className="mt-13 mb-4 px-30">
-        <div className="md:mb-10">
-          <Title
-            title={"Latest Listing"}
-            description={
-              "We have a magnificent selection of upcoming and new projects that will open your eyes to the future’s potential. These properties make tomorrow worth waiting for."
-            }
-          />
-        </div>
-      </Container>
-
-      {/* Cards */}
-      <CustomSwiper scrollbar={false} slidesPerView={3} spaceBetween={10}>
-        {properties?.map((property) => (
-          <Cards key={property?.id} width="max-w-[400px]">
-            <Carousel images={property.pictures} />
-            {/* Card body */}
-            {/* <Link href={"#"}> */}
-            {property?.property_type && (
+  const renderCardBody = (property)=>{
+    return (
+      <>
+      {/* <Link href={"#"}> */}
+      {property?.property_type && (
               <div className="overlay p-6 bg-transparent">
                 <div className="bg-primary-blue max-w-max px-4 py-2 rounded-lg">
                   <p className="text-white text-xs capitalize">
@@ -62,16 +42,17 @@ const LatestListing = async () => {
                   {property?.name_en || "Property Name Unavailable"}
                 </h1>
               </div>
-              
+
               <p className="font-satoshi text-primary-blue">
                 Location: {`${property?.address?.country?.name || "Unknown"}`}
               </p>
 
-              <p className={`${property?.amount ? "text-primary-green" : "text-primary-gray" } text-lg font-medium`}>
+              <p className={`${property?.amount ? "text-primary-green" : "text-primary-gray"} text-lg font-medium`}>
                 {`${property?.amount ? `From AED ${property?.amount}` : "Contact Agent For Price"}`}
               </p>
 
               <div className="flex font-normal gap-4">
+                
                 {property?.size_sqft && (<div className="flex gap-1">
                   <Image
                     src="/icons/ic_link.svg"
@@ -82,19 +63,20 @@ const LatestListing = async () => {
                   />
                   <span className="text-xs">{`${property?.size_sqft} Sq.Ft`}</span>
                 </div>)}
-                <div className="flex gap-1">
+
+                {property?.count_bedrooms && <div className="flex gap-1">
                   <Image
                     src="/icons/ic_bed.svg"
                     width={16}
                     height={16}
-                    alt={`bed-${property?.count_bathrooms}`}
+                    alt={`bed-${property?.count_bedrooms}`}
                     className="w-5 h-5"
                   />
                   <span className="text-xs">{`${property?.count_bedrooms
                     } bedrooms`}</span>
-                </div>
+                </div>}
 
-                <div className="flex gap-1">
+                {property?.count_bathrooms && <div className="flex gap-1">
                   <Image
                     src="/icons/ic_accessories.svg"
                     width={16}
@@ -104,10 +86,34 @@ const LatestListing = async () => {
                   />
                   <span className="text-xs">{`${property?.count_bathrooms
                     } bathrooms`}</span>
-                </div>
+                </div>}
               </div>
             </div>
             {/* </Link> */}
+      </>
+    );
+  }
+
+  return (
+    <>
+      <Container className="mt-13 mb-4 px-30">
+        <div className="md:mb-10">
+          <Title
+            title={"Latest Listing"}
+            description={
+              "We have a magnificent selection of upcoming and new projects that will open your eyes to the future’s potential. These properties make tomorrow worth waiting for."
+            }
+          />
+        </div>
+      </Container>
+
+      {/* Cards */}
+      <CustomSwiper scrollbar={false} slidesPerView={3} spaceBetween={30}>
+        {properties?.map((property) => (
+          // <Cards key={property?.id} width="max-w-[400px]">
+          <Cards key={property?.id} width="">
+            <Carousel images={property.pictures} />
+            {renderCardBody(property)}
             {property?.agents[0] && <AgentCards agentData={property?.agents[0]} />}
           </Cards>
         ))}

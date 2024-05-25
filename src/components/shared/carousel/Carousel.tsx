@@ -27,7 +27,7 @@ const Carousel: any = ({ images }) => {
         {images.length > 0 ? (
           images?.map((item, index) => (
             <div
-              key={item.id}
+              key={`${item.id}-${index}`}
               className={`absolute block w-full h-full transition-transform duration-700 ease-in-out ${
                 index === activeIndex ? "block" : "hidden"
               }`}

@@ -27,30 +27,30 @@ const AgentCards = ({ agentData }) => {
         )}
       </div>
       <div className="flex-1 min-w-0 ms-4 font-objective">
-        <p className="text-sm text-gray-300">{"agent"}</p>
+        <p className="text-sm text-gray-300">agent</p>
         <p className="text-sm">
-          {`${first_name || ""} ${last_name || ""}`}
+          {(first_name || last_name) ? `${first_name || ""} ${last_name || ""}` : 'Agent Unavailable' }
         </p>
       </div>
       <div className="inline-flex gap-2 items-center text-base font-semibold">
-        <RoundLinks
-          link={`mailto:${email}`}
+        {phone_number && <RoundLinks
+          link={`mailto:${phone_number}`}
           bgcolor="secondary-gray"
           img={"/icons/ic_call.svg"}
           name={"call"}
-        />
-        <RoundLinks
-          link={`tel:${phone_number}`}
+        />}
+        {email && <RoundLinks
+          link={`tel:${email}`}
           bgcolor="secondary-gray"
           img={"/icons/ic_email.svg"}
           name={"email"}
-        />
-        <RoundLinks
+        />}
+        {whatsapp_number && <RoundLinks
           link={`https://wa.me/${whatsapp_number}`}
           bgcolor="secondary-gray"
           img={"/icons/ic_whatsapp.svg"}
           name={"whatsapp"}
-        />
+        />}
       </div>
     </div>
   );

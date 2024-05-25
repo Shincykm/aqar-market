@@ -63,7 +63,7 @@ const Communities = () => {
             </div>
 
             <div className="overlay rounded-[20px] bg-black bg-opacity-40 text-white">
-              <div className="absolute top-[45%] p-6 flex flex-col justify-center gap-2 w-full ">
+              <div className="absolute top-[30%] lg:top-[40%] p-6 flex flex-col justify-center gap-2 w-full ">
                 <p className="text-[19px] font-normal">{`From ${community?.price} AED`}</p>
                 <div className="flex items-center gap-2">
                   <Image
@@ -73,9 +73,8 @@ const Communities = () => {
                     alt={`bed-`}
                     className="w-5 h-5"
                   />
-                  <span className="text-xs">{`${
-                    community?.beds || 0
-                  } Bed Apartments`}</span>
+                  <span className="text-xs">{`${community?.beds || 0
+                    } Bed Apartments`}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Image
@@ -85,14 +84,17 @@ const Communities = () => {
                     alt={`bed-`}
                     className="w-5 h-5"
                   />
-                  <span className="text-xs">{`${
-                    community?.beds || 0
-                  } Bed Duplexes`}</span>
+                  <span className="text-xs">{`${community?.beds || 0
+                    } Bed Duplexes`}</span>
                 </div>
                 <div className="flex justify-between items-center ">
-                  <h1 className="text-[37px] font-medium">
-                    {community?.title}
-                  </h1>
+
+                  <div className="text-lg md:text-2xl lg:text-3xl xl:text-40px 2xl:text-5xl leading-normal clamp-3">
+                    <h1 className="text-[37px] font-medium">
+                      {community?.title}
+                    </h1>
+                  </div>
+
                   <Link
                     href={"#"}
                     className="bg-primary-green rounded-xl py-3 px-6"
