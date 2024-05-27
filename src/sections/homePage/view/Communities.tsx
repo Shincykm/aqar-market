@@ -49,9 +49,9 @@ const Communities = () => {
       </Container>
 
       {/* Cards */}
-      <CustomSwiper scrollbar={true} slidesPerView={1.5} spaceBetween={30}>
+      <CustomSwiper scrollbar={true} slidesPerView={1.5} spaceBetween={0}>
         {communities?.map((community, index) => (
-          <Cards key={community?.id} propClass="w-full">
+          <Cards key={community?.id} propClass="max-w-[800px]">
             <div className="rounded-[20px] overflow-hidden">
               <div className="relative w-full h-[344px] rounded-2xl overflow-hidden">
                 <Image
@@ -63,7 +63,7 @@ const Communities = () => {
                 />
               </div>
 
-              <div className="overlay rounded-[20px] bg-black bg-opacity-40 text-white">
+              <div className="overlay max-w-[800px] rounded-[20px] bg-black bg-opacity-40 text-white">
                 <div className="absolute top-[30%] lg:top-[40%] p-6 flex flex-col justify-center gap-2 w-full ">
                   <p className="text-[19px] font-normal">{`From ${community?.price} AED`}</p>
                   <div className="flex items-center gap-2">
