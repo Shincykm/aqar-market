@@ -49,7 +49,7 @@ const Communities = () => {
       </Container>
 
       {/* Cards */}
-      <CustomSwiper scrollbar={true} slidesPerView={1.5} spaceBetween={0}>
+      <CustomSwiper scrollbar={true} slidesPerView={1.5} spaceBetween={30}>
         {communities?.map((community, index) => (
           <Cards key={community?.id} propClass="max-w-[800px]">
             <div className="rounded-[20px] overflow-hidden">

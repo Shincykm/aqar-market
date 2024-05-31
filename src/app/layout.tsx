@@ -24,7 +24,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${chillax.variable} ${satoshi.variable} ${objective.variable} mx-auto overflow-x-hidden`}>
         <Navbar />
-        {children}
+        <div className="min-h-screen">
+          {children}
+        </div>
         <Footer />
         </body>
     </html>

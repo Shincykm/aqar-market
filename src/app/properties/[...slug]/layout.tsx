@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { HeroSection } from "@/sections/property-details-page/view";
-import BreadCrumbs from "@/sections/property-details-page/BreadCrumbs";
-import { FaAngleRight, FaArrowRight, FaHome } from "react-icons/fa";
+import { HeroSection } from "@/sections/propertyDetailsPage/view";
+import BreadCrumbs from "@/components/shared/breadcrumbs/BreadCrumbs";
+import { FaAngleRight, FaHome } from "react-icons/fa";
 
 export const metadata: Metadata = {
   title: 'Aqar Market - properties',
@@ -28,7 +28,9 @@ export default function RootLayout({
     />
 
     <section id="property-details">
+      <div className="px-5 md:px-10 xl:px-30">
         {children}
+      </div>
     </section>
     </>
   );

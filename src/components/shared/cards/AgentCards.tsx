@@ -3,7 +3,7 @@ import React from "react";
 import RoundLinks from "../Links/RoundLinks";
 
 const AgentCards = ({ agentData }) => {
-    const { email, first_name, last_name, phone_number, whatsapp_number, profile_picture } =  agentData.user;
+    const { email, first_name, last_name, phone_number, whatsapp_number, profile_picture } =  agentData?.user   ||{};
 
   return (
     <div className="flex items-center pt-4">
@@ -27,7 +27,7 @@ const AgentCards = ({ agentData }) => {
         )}
       </div>
       <div className="flex-1 min-w-0 ms-4 font-objective">
-        <p className="text-sm text-gray-300">agent</p>
+        <p className="text-sm text-gray-300">Agent</p>
         <p className="text-sm">
           {(first_name || last_name) ? `${first_name || ""} ${last_name || ""}` : 'Agent Unavailable' }
         </p>

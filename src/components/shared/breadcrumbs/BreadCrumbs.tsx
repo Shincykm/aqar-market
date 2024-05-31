@@ -1,6 +1,6 @@
 'use client'
 
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { FaAngleLeft } from 'react-icons/fa6'
@@ -20,15 +20,18 @@ const BreadCrumbs = ({homeElement, separator, containerClasses, listClasses, act
     
     const router = useRouter();
     const paths = usePathname();
-    const pathNames = paths.split('/').filter( path => path );
+    const pathNames = paths.split('/').filter( path => path );   
 
     return (
-        <div className='flex items-center justify-between px-11'>
-            <div className='flex items-center gap-6 mt-6'>
+        <div className='flex items-center justify-between gap-1 px-2 md:px-11 mb-3 lg:mb-20'>
+            <div className='flex items-center gap-6 md:mt-6'>
                 <Button onClick={() => router.back()}>
                     <div className="flex items-center gap-4 text-primary-green hover:opacity-65">
-                        <p ><FaAngleLeft size={20}/></p>
-                        <p className='font-medium'>Back to search</p>
+                        <p ><FaAngleLeft className='w-4 md:w-5'/></p>
+                        <p className='font-medium'>
+                            <span className='hidden md:block'>Back to search</span>
+                            <span className='block md:hidden'>Back</span>
+                        </p>
                         <p className='text-gray-400'>|</p>
                     </div>
                 </Button>
@@ -46,7 +49,7 @@ const BreadCrumbs = ({homeElement, separator, containerClasses, listClasses, act
                         return (
                             <React.Fragment key={index}>
                                 <li key ={index} className={`${itemClasses} capitalize`} >
-                                    {(pathNames.length !== index + 1)
+                                    {(pathNames.length !== index+1)
                                         ? <Link href={href}>{itemLink}</Link>
                                         : itemLink
                                     }

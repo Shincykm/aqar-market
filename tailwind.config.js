@@ -35,6 +35,8 @@ export const theme = {
       'primary-gray-light' : 'rgba(249, 249, 249, 1)',
       'primary-gray' : 'rgba(203, 213, 225, 1)',
       'secondary-gray' : 'rgba(243, 243, 243, 1)',
+      'ternary-gray' : 'rgba(128, 128, 128, 1)',
+
     },
   },
 };

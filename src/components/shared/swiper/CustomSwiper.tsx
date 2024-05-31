@@ -14,7 +14,7 @@ const CustomSwiper = ({scrollbar=true, children, slidesPerView=3, spaceBetween=1
   const modulesArray = scrollbar ? [Autoplay, Scrollbar] : [Autoplay];
 
   return (
-      <div className= "pl-30 overflow-hidden">
+      <div className= "overflow-hidden">
           <Swiper
             slidesPerView={'auto'}
             spaceBetween={spaceBetween}
