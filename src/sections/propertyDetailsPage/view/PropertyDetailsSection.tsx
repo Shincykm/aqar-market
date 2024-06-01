@@ -55,6 +55,7 @@ import MapComponent from "@/components/maps/Map";
 import { AgentCards, Button, Cards, Carousel, CustomSwiper } from "@/components/shared";
 import { endpoints } from "@/lib/endpoints";
 import { LatestListing } from "@/sections/homePage/view";
+import { IntlNumFormat } from "@/utils/intNumFormat";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -270,6 +271,25 @@ const response = {
 const PropertyDetailsSection = async ({ propertyId }) => {
   const { data: propertyDetails } = response;
 
+  const iconText = [
+    {
+      label : propertyDetails?.amount ? `AED ${propertyDetails?.amount}` : "",
+      icon : "/icons/ic_home.svg"
+    },
+    {
+      label : propertyDetails?.amount ? `AED ${propertyDetails?.amount}` : "",
+      icon : "/icons/ic_home.svg"
+    },
+    {
+      label : propertyDetails?.amount ? `AED ${propertyDetails?.amount}` : "",
+      icon : "/icons/ic_home.svg"
+    },
+    {
+      label : propertyDetails?.amount ? `AED ${propertyDetails?.amount}` : "",
+      icon : "/icons/ic_home.svg"
+    },
+  ];
+
   const renderDescription = (title, description, btnText="") =>{
     return (
       <div className="w-2/3">
@@ -326,11 +346,11 @@ const PropertyDetailsSection = async ({ propertyId }) => {
 
         <div className="w-1/3 flex flex-col gap-5 min-w-max">
           <div className="">
-            <h1>{propertyDetails?.amount ? `AED ${propertyDetails?.amount}` : ""}</h1>
-            {propertyDetails?.reference_number &&  <h3>{`PROPERTY REF: ${propertyDetails.reference_number}`}</h3>}
+            <h1 className="text-2xl lg:text-40px text-primary-green mb-1">{}</h1>
+            propertyDetails?.reference_number &&  <h3 className="text-primary-blue-light text-lg lg:text-xl">{`PROPERTY REF: ${IntlNumFormat(propertyDetails.reference_number)}`}</h3>
           </div>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col font-satoshi">
               <div className="flex gap-1">
                 <Image
                   src={"/icons/ic_home.svg"}
@@ -339,7 +359,7 @@ const PropertyDetailsSection = async ({ propertyId }) => {
                   alt={`property-${propertyDetails?.property_type?.name_en}}`}
                   className="w-4 h-4"
                 />
-                <span className="text-xs">{`${propertyDetails?.count_bathrooms} bathrooms`}</span>
+                <span className="text-xs lg:text-xl text-primary-violet">{`${propertyDetails?.property_type?.name_en}`}</span>
               </div>
 
               <div className="flex gap-1">
