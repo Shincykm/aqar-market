@@ -52,7 +52,7 @@
 'use client';
 import { fetchProperties } from "@/api/property";
 import MapComponent from "@/components/maps/Map";
-import { Button, Cards, Carousel, CustomSwiper } from "@/components/shared";
+import { AgentCards, Button, Cards, Carousel, CustomSwiper } from "@/components/shared";
 import { endpoints } from "@/lib/endpoints";
 import { LatestListing } from "@/sections/homePage/view";
 import Image from "next/image";
@@ -272,8 +272,8 @@ const PropertyDetailsSection = async ({ propertyId }) => {
 
   const renderDescription = (title, description, btnText="") =>{
     return (
-      <>
-        <h1 className="text-2xl lg:text-40px text-primary-violet">
+      <div className="w-2/3">
+        <h1 className="text-2xl lg:text-40px text-primary-violet leading-relaxed">
           {title || "Property Not Available"}
         </h1>
         {description && <div className="mb-6">
@@ -284,15 +284,15 @@ const PropertyDetailsSection = async ({ propertyId }) => {
             {btnText}
           </Button>}
         </div>}
-      </>
+      </div>
     );
   }
 
   return (
     <>
       {/* propertyDetails */}
-      <div className="flex flex-col lg:flex-row">
-        <div className="flex-1 flex flex-col gap-10 lg:gap-24 font-objective">
+      <div className="flex flex-col lg:flex-row justify-between gap-4">
+        <div className="max-w-2/3 flex flex-col gap-10 lg:gap-18 font-objective">
           {renderDescription(propertyDetails?.name_en, propertyDetails?.description_en, "Read More")}
 
           <div className="text-lg">
@@ -323,7 +323,64 @@ const PropertyDetailsSection = async ({ propertyId }) => {
 
           {/* {renderDescription("Project Information", "", "Read More")} */}
         </div>
-        <div className="flex-1"></div>
+
+        <div className="w-1/3 flex flex-col gap-5 min-w-max">
+          <div className="">
+            <h1>{propertyDetails?.amount ? `AED ${propertyDetails?.amount}` : ""}</h1>
+            {propertyDetails?.reference_number &&  <h3>{`PROPERTY REF: ${propertyDetails.reference_number}`}</h3>}
+          </div>
+
+          <div className="flex flex-col">
+              <div className="flex gap-1">
+                <Image
+                  src={"/icons/ic_home.svg"}
+                  width={16}
+                  height={16}
+                  alt={`property-${propertyDetails?.property_type?.name_en}}`}
+                  className="w-4 h-4"
+                />
+                <span className="text-xs">{`${propertyDetails?.count_bathrooms} bathrooms`}</span>
+              </div>
+
+              <div className="flex gap-1">
+                <Image
+                  src="/icons/ic_link.svg"
+                  width={16}
+                  height={16}
+                  alt={`area-${propertyDetails?.size_sqft}`}
+                  className="w-4 h-4"
+                />
+                <span className="text-xs">{`${propertyDetails?.size_sqft} Sq.Ft`}</span>
+              </div>
+
+              <div className="flex gap-1">
+                <Image
+                  src="/icons/ic_bed.svg"
+                  width={16}
+                  height={16}
+                  alt={`bed-${propertyDetails?.count_bedrooms}`}
+                  className="w-5 h-5"
+                />
+                <span className="text-xs">{`${propertyDetails?.count_bedrooms} bedrooms`}</span>
+              </div>
+
+              <div className="flex gap-1">
+                <Image
+                  src="/icons/ic_accessories.svg"
+                  width={16}
+                  height={16}
+                  alt={`bathrooms-${propertyDetails?.count_bathrooms}}`}
+                  className="w-4 h-4"
+                />
+                <span className="text-xs">{`${propertyDetails?.count_bathrooms} bathrooms`}</span>
+              </div>
+
+              {propertyDetails?.agents[0] && <div className="">
+                <h4>AGENT</h4>
+                <AgentCards agentData={propertyDetails?.agents[0]} />
+              </div>}
+          </div>
+        </div>
       </div>
 
       {/* Map */}

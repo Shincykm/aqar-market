@@ -48,12 +48,12 @@ const BreadCrumbs = ({homeElement, separator, containerClasses, listClasses, act
                         let itemLink = link.split("-").join(" ");
                         return (
                             <React.Fragment key={index}>
-                                <li key ={index} className={`${itemClasses} capitalize`} >
+                                {<li key ={index} className={`${itemClasses} capitalize`} >
                                     {(pathNames.length !== index+1)
                                         ? <Link href={href}>{itemLink}</Link>
                                         : itemLink
                                     }
-                                </li>
+                                </li>}
                                 {pathNames.length !== index + 1 && separator}
                             </React.Fragment>
                         )

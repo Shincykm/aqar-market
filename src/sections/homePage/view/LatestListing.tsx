@@ -11,7 +11,7 @@ import { revalidatePath } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 
-const LatestListing = async ({properties}) => {
+const LatestListing = async ({properties, title="", description=""}) => {
 
   const renderCardBody = (property) => {
     return (
@@ -98,13 +98,11 @@ const LatestListing = async ({properties}) => {
 
   return (
     <>
-      <Container className="mt-13 mb-4 px-30">
+      <Container className="mt-13 mb-4 lg:px-30">
         <div className="md:mb-10">
           <Title
-            title={"Latest Listing"}
-            description={
-              "We have a magnificent selection of upcoming and new projects that will open your eyes to the future’s potential. These properties make tomorrow worth waiting for."
-            }
+            title={title}
+            description={description}
           />
         </div>
       </Container>

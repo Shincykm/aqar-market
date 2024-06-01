@@ -16,7 +16,6 @@ import React from 'react'
 
 const propertyDetailsPage = async ({ params }: { params: { slug: string[] } }) => {
   const {slug} = params;
-  console.log(slug, "slug");
   const { data: availableProperties } = await fetchProperties();
   
   return (
@@ -24,7 +23,7 @@ const propertyDetailsPage = async ({ params }: { params: { slug: string[] } }) =
       <PropertyDetailsSection propertyId = {slug}/>
 
       {/* More Availbale proerties */}
-      <LatestListing properties={availableProperties}/>
+      <LatestListing properties={availableProperties} title="available properties" description=""/>
     </>
   )
 }
