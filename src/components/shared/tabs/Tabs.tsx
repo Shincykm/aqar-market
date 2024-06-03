@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, ReactNode, MouseEvent, ReactElement } from "react";
+import React, { useState, ReactNode, MouseEvent, ReactElement, useEffect } from "react";
 import Button from "../button/Button";
+import { useMediaQuery } from "react-responsive";
 
 interface TabsProps {
   children: ReactElement<TabProps> | ReactElement<TabProps>[];
@@ -13,17 +14,27 @@ interface TabProps {
 }
 
 export const Tabs: React.FC<TabsProps> = ({ children }) => {
+  const isSmallScreen = useMediaQuery({ maxWidth: 767 });
+
   const childArray = React.Children.toArray(children) as ReactElement<TabProps>[];
-  const [activeTab, setActiveTab] = useState(childArray[0]?.props?.label);
+  const [activeTab, setActiveTab] = useState(null);
+
+
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>, newActiveTab: string) => {
     e.preventDefault();
     setActiveTab(newActiveTab);
   };
 
+  useEffect(()=>{
+    if(!isSmallScreen){
+      setActiveTab(childArray[0]?.props?.label)
+    }
+  }, );
+
   return (
     <>
-      <div className="mx-6 mt-20 flex max-w-max overflow-hidden rounded-t-lg bg-red-100">
+      <div className="mx-6 mt-2 lg:mt-20 flex max-w-max rounded-t-lg overflow-hidden">
         {childArray.map((child,index) => (
           <Button
             key={index || child.props?.label}
@@ -42,7 +53,7 @@ export const Tabs: React.FC<TabsProps> = ({ children }) => {
       {childArray.map((child,index) => {
         if (child.props.label === activeTab) {
           return (
-            <div key={index} className="">
+            <div key={index} className="w-full">
               {child.props.children}
             </div>
           );

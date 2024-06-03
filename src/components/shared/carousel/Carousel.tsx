@@ -19,7 +19,7 @@ const Carousel: any = ({ images }) => {
   return (
     <div
       id="indicators-carousel"
-      className="relative w-full"
+      className="relative w-full z-[800]"
       data-carousel="static"
     >
       {/* Carousel wrapper */}

@@ -1,7 +1,6 @@
 import { fetchProperties, fetchPropertyById } from '@/api/property';
 import { LatestListing } from '@/sections/homePage/view';
 import PropertyDetailsSection from '@/sections/propertyDetailsPage/view/PropertyDetailsSection'
-import React from 'react'
 
 // export async function generateMetadata({ params }) {
 //   const { id } = params;

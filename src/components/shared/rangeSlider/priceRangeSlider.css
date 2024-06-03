@@ -1,0 +1,22 @@
+/* slider css */
+#range-slider-blue {
+    background: #e8e8e8;
+  }
+  
+  #range-slider-blue .range-slider__range {
+    background: rgba(53, 181, 180, 1);
+    transition: height 0.3s;
+  }
+  
+  #range-slider-blue .range-slider__thumb {
+    background: rgba(53, 181, 180, 1);
+    transition: transform 0.3s;
+  }
+  
+  #range-slider-blue .range-slider__thumb[data-active] {
+    transform: translate(-50%, -50%) scale(1.25);
+  }
+  
+  #range-slider-blue .range-slider__range[data-active] {
+    height: 10px;
+  }

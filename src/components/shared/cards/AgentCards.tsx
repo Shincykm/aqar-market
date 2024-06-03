@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import RoundLinks from "../Links/RoundLinks";
+import RoundLinks from "../links/RoundLinks";
 
 const AgentCards = ({ agentData, direction="row" }) => {
     const { email, first_name, last_name, phone_number, whatsapp_number, profile_picture } =  agentData?.user   ||{};

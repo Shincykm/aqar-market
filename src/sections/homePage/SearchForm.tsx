@@ -6,15 +6,18 @@ import Input from "@/components/shared/input/Input";
 import { Button, DropDown, DropDown1 } from "@/components/shared";
 import { FaArrowDown } from "react-icons/fa6";
 import { FaAngleDown } from "react-icons/fa";
+import PriceRangeSlider from "@/components/shared/rangeSlider/PriceRangeSlider";
 
 const SearchForm = ({ type: string }) => {
   const INITIAL_SEARCH_DATA = {
     location: "",
     residential: "",
-    price: "",
+    minPrice: 0,
+    maxPrice: 0,
     bed: "",
     baths: "",
   };
+
   const [searchData, setSearchData] = useState(INITIAL_SEARCH_DATA);
 
   const updateSearchData = (data: any) => {
@@ -41,10 +44,10 @@ const SearchForm = ({ type: string }) => {
   };
 
   return (
-    <form name="search" onSubmit={handleSubmit}>
-      <div className="bg-white text-primary-blue px-5 rounded-3xl">
-        <div className="p-5 grid grid-cols-5 gap-8">
-          <div className="flex justify-center flex-1 flex-col gap-2">
+      <form name="search" onSubmit={handleSubmit} className="overflow-visible">
+      <div className="bg-white text-primary-blue px-1 lg:px-5 rounded-3xl py-4 lg:py-0">
+        <div className="p-3 lg:px-0 grid lg:grid-cols-5 gap-8">
+          <div className="flex justify-center gap-1 flex-1 flex-col">
             <label htmlFor="type" className="search-label">
               Location
             </label>
@@ -68,7 +71,7 @@ const SearchForm = ({ type: string }) => {
             buttonText="Residential"
             buttonClass="text-primary-blue mt-2 bg-white focus:outline-0"
             name="propertyType"
-            options={["Residential", "Villa", "TownHouse"]}
+            options={["Residential", "Villa", "TownHouse","Residential", "Villa", "TownHouse","Residential", "Villa", "TownHouse"]}
             updateData={updateSearchData}
           />
           </div> 
@@ -77,18 +80,7 @@ const SearchForm = ({ type: string }) => {
             <label htmlFor="type" className="search-label">
               Price
             </label>
-            <DropDown
-              buttonText="0,0000 - 20,0000 AED"
-              buttonClass="text-primary-blue mt-2 bg-white focus:outline-0"
-              name="price"
-              options={[
-                "0,0000 - 10,0000 AED",
-                "10,0000 - 20,0000 AED",
-                "30,0000 - 40,0000 AED",
-                "40,0000 - 50,0000 AED",
-              ]}
-              updateData={updateSearchData}
-            />
+            <PriceRangeSlider name="price" updateSearchData={updateSearchData} buttonClass="text-primary-blue mt-2 bg-white focus:outline-0"/>
           </div>
 
           <div className="flex justify-center flex-1 flex-col">

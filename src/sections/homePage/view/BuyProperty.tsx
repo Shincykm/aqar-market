@@ -29,7 +29,7 @@ const BuyProperty = () => {
               text : "Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod.",
             },
           ].map((item,index) => (
-            <div className="flex-col pr-3">
+            <div className="flex-col pr-3" key={index}>
             <div className="bg-black p-2 w-14 h-14 rounded-full text-center">
               <span className="text-white font text-2xl">{index + 1}</span>
             </div>
