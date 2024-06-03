@@ -7,7 +7,6 @@ import {
   CustomSwiper,
 } from "@/components/shared";
 import { slugify } from "@/utils/slugify";
-import { revalidatePath } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -51,7 +50,7 @@ const LatestListing = async ({properties, title="", description=""}) => {
             }`}
           </p>
 
-          <div className="flex font-normal gap-4">
+          <div className="flex font-normal gap-2 min-h-10">
             {property?.size_sqft && (
               <div className="flex gap-1">
                 <Image
@@ -98,7 +97,7 @@ const LatestListing = async ({properties, title="", description=""}) => {
 
   return (
     <>
-      <Container className="mt-13 mb-4 lg:px-30">
+      <Container className="px-3 lg:px-0 mt-13 mb-4">
         <div className="md:mb-10">
           <Title
             title={title}
@@ -108,10 +107,10 @@ const LatestListing = async ({properties, title="", description=""}) => {
       </Container>
 
       {/* Cards */}
-      <div className="lg:pl-30">
+      <div className="px-3 lg:px-0">
         <CustomSwiper scrollbar={false} slidesPerView={3.5} spaceBetween={30}>
           {properties?.map((property) => (
-            <Cards key={property?.id} width="max-w-[400px]">
+            <Cards key={property?.id} width="w-[90%] lg:w-full lg:max-w-[450px]">
               <Carousel images={property.pictures} />
                 {renderCardBody(property)}
               {

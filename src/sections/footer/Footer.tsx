@@ -8,7 +8,7 @@ const Footer = () => {
     <>
       <footer className="text-center text-surface/75">
         {/* main footer container */}
-        <div className="mx-auto px-30 py-20 xl:py-24 text-center md:text-left">
+        <div className="mx-auto lg:px-30 lg:py-20 xl:py-24 text-center md:text-left">
           <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {/* <!-- Services section --> */}
             <div className="font-chillax">
@@ -65,7 +65,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="font-semibold text-sm leading-7 flex flex-col items-start">
+            <div className="font-semibold text-sm leading-7 flex flex-col lg:items-start mb-5 lg:mb-0">
               <Logo />
               <p className="mt-8 font-openSans font-normal text-gray-four">
                 Stay connected with us and let's know more stories about housing
@@ -102,7 +102,7 @@ const Footer = () => {
 
         {/* <!--Copyright section--> */}
         <div className="bg-primary-blue text-white text-sm min-h-[5.6rem] flex justify-between">
-          <div className="max-w-[1200px] px-6 m-auto flex items-center justify-between w-full">
+          <div className="max-w-[1200px] px-6 m-auto flex flex-col lg:flex-row items-center gap-3 justify-between w-full">
             <Logo color="white" />
             <div className="text-center font-openSans">
               <span>© Aquamarket 2024 </span>

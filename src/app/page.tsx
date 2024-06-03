@@ -8,14 +8,16 @@ import NewProjects from '@/sections/homePage/view/NewProjects';
 
 
 export default async function Home() {
-  const { data: properties } = await fetchProperties();
+  const { data: properties} = await fetchProperties();
 
 
   return (
     <main className="w-full">
           <HomeHero />
 
-          <LatestListing properties = {properties}/>
+          <div className="lg:px-30">
+            <LatestListing title = "latest properties" properties = {properties}/>
+          </div>
 
           <NewProjects />
 

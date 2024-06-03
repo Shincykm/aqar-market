@@ -11,7 +11,7 @@ const HomeHero = () => {
         <Video src={"videos/aqar-video.mp4"} height="600px" />
         <div className="overlay bg-black bg-opacity-30"></div>
 
-        <div className="absolute top-2 md:top-1/4 px-2 md:px-30">
+        <div className="absolute top-1/4 px-2 md:px-30">
           <div className="text-white">
             {/* Title Component */}
             <HeroTitle
@@ -31,10 +31,10 @@ const HomeHero = () => {
 
 
             {/* Testing */}
-            <Tabs>
+            {/* <Tabs>
               <Tab label="RENT"><SearchForm type ="rent"/></Tab>
               <Tab label="BUY"><SearchForm type ="buy"/></Tab>
-            </Tabs>
+            </Tabs> */}
           </div>
         </div>
       </div>

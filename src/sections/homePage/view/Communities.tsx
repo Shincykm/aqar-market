@@ -37,7 +37,7 @@ const Communities = () => {
 
   return (
     <section className="home-page">
-      <Container className="mt-13 mb-4 px-30">
+      <Container className="mt-13 mb-4 px-3 lg:px-30">
         <div className="md:mb-10">
           <Title
             title={"Communities"}
@@ -49,7 +49,8 @@ const Communities = () => {
       </Container>
 
       {/* Cards */}
-      <CustomSwiper scrollbar={true} slidesPerView={1.5} spaceBetween={30}>
+      <div className="px-3 lg:pl-30">
+      <CustomSwiper scrollbar={true} slidesPerView={1.5} spaceBetween={10}>
         {communities?.map((community, index) => (
           <Cards key={community?.id} propClass="max-w-[800px]">
             <div className="rounded-[20px] overflow-hidden">
@@ -109,14 +110,15 @@ const Communities = () => {
           </Cards>
         ))}
       </CustomSwiper>
+      </div>
 
-      <div className="flex items-center justify-between description px-30 pt-20">
+      <div className="flex flex-col gap-3 lg:flex-row items-center justify-between description px-3 lg:px-30 pt-20">
         <p>
           Why not explore all of the communities on offer and find the lifestyle
           of your dreams?
         </p>
 
-        <Link href={"#"} className="btn-round border-primary-blue">
+        <Link href={"#"} className="btn-round text-xs lg:text-base border-primary-blue">
           <p>See More</p>
         </Link>
       </div>

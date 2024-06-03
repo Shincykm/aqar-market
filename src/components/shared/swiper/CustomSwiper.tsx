@@ -31,12 +31,12 @@ const CustomSwiper = ({scrollbar=true, children, slidesPerView=3, spaceBetween=1
               }
             breakpoints={{
             640: {
-                slidesPerView: 1,
+                slidesPerView: slidesPerView-2 >0 ? slidesPerView-2 : 1,
                 spaceBetween:10,
             },
             768: {
-                slidesPerView: 1,
-                spaceBetween:20,
+                slidesPerView: slidesPerView-2 >0 ? slidesPerView-2 : 1,
+                spaceBetween:0,
             },
             1024: {
                 slidesPerView: slidesPerView-1,

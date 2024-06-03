@@ -23,7 +23,7 @@ const Carousel: any = ({ images }) => {
       data-carousel="static"
     >
       {/* Carousel wrapper */}
-      <div className="relative w-fullh-56 overflow-hidden rounded-lg md:h-64">
+      <div className="relative w-full h-56 overflow-hidden rounded-lg md:h-64">
         {images.length > 0 ? (
           images?.map((item, index) => (
             <div

@@ -18,7 +18,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className='flex justify-between items-center px-2 py-3 md:px-30 md:py-6 font-satoshi text-sm font-medium'>
+    <div className='flex justify-between items-center px-2 py-3 lg:px-30 md:py-6 font-satoshi text-sm font-medium'>
       {/* Logo */}
       <Logo />
 
@@ -43,7 +43,7 @@ const Navbar = () => {
       <ul
         className={
           nav
-            ? 'fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-white ease-in-out duration-500'
+            ? 'z-[999] fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-white ease-in-out duration-500'
             : 'ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]'
         }
       >
@@ -57,7 +57,7 @@ const Navbar = () => {
         {NAV_LINKS.map(item => (
           <li
             key={item.id}
-            className='p-4 border-b rounded-xl hover:bg-primary-green duration-300 hover:text-white cursor-pointer border-gray-200'
+            className='p-4 border-b hover:bg-primary-green duration-300 hover:text-white cursor-pointer border-gray-200'
           >
             <Link href={item.link}>{item.title}</Link>
           </li>

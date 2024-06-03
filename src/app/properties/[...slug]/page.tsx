@@ -1,4 +1,4 @@
-import { fetchProperties } from '@/api/property';
+import { fetchProperties, fetchPropertyById } from '@/api/property';
 import { LatestListing } from '@/sections/homePage/view';
 import PropertyDetailsSection from '@/sections/propertyDetailsPage/view/PropertyDetailsSection'
 import React from 'react'
@@ -16,11 +16,14 @@ import React from 'react'
 
 const propertyDetailsPage = async ({ params }: { params: { slug: string[] } }) => {
   const {slug} = params;
+  
   const { data: availableProperties } = await fetchProperties();
+  const { data: properyDetails } = await fetchPropertyById(slug[0]);
+
   
   return (
     <>
-      <PropertyDetailsSection propertyId = {slug}/>
+      <PropertyDetailsSection propertyDetails = {properyDetails}/>
 
       {/* More Availbale proerties */}
       <LatestListing properties={availableProperties} title="available properties" description=""/>

@@ -9,10 +9,33 @@ const fetchProperties = async () => {
       }
       return response.json();
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   };
 
+// --------------------------------------------------------------------
+
+const fetchPropertyById = async (propertyId : number | string) => {
+  try {
+    console.log(`${process.env.VITE_GET_PROPERTY_BY_ID}/${propertyId}`);
+    
+    const response = await fetch(
+      `${process.env.VITE_GET_PROPERTY_BY_ID}/${propertyId}`,
+      {next:{revalidate:3600}}
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    return response.json();
+  } catch (error) {
+    throw error;
+  }
+};
+
+// --------------------------------------------------------------------
+// --------------------------------------------------------------------
+
 export {
     fetchProperties,
+    fetchPropertyById
 }

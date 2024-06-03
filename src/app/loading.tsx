@@ -1,8 +1,10 @@
-import React from 'react'
+import { Logo } from '@/components/shared'
 
 const Loading = () => {
   return (
-    <div>Loading</div>
+    <div className='flex-center min-h-screen'>
+      <Logo />
+    </div>
   )
 }
 
