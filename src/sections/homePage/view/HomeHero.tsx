@@ -2,7 +2,7 @@
 import { Tab, Tabs } from "@/components/shared";
 import { Video } from "@/components/shared";
 import HeroTitle from "@/sections/hero/HeroTitle";
-import SearchForm from "@/sections/homePage/SearchForm";
+import SearchForm from "@/components/search/SearchForm";
 const HomeHero = () => {
   return (
       <div className="relative max-h-[600px]">

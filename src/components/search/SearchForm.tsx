@@ -1,12 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import Input from "@/components/shared/input/Input";
-// import { FaLocationDot } from "react-icons/fa6";
-// import Dropdown from "../../shared/DropDown";
-import { Button, DropDown, DropDown1 } from "@/components/shared";
-import { FaArrowDown } from "react-icons/fa6";
-import { FaAngleDown } from "react-icons/fa";
-import PriceRangeSlider from "@/components/shared/rangeSlider/PriceRangeSlider";
+import { Button, DropDown } from "@/components/shared";
+import PriceRangeSlider from "@/components/search/rangeSlider/PriceRangeSlider";
+import PropertyTypeDropDown from "./PropertyTypeDropDown";
 
 const SearchForm = ({ type: string }) => {
   const INITIAL_SEARCH_DATA = {
@@ -44,7 +41,11 @@ const SearchForm = ({ type: string }) => {
   };
 
   return (
-      <form name="search" onSubmit={handleSubmit} className="overflow-visible">
+    <form
+      name="search"
+      onSubmit={handleSubmit}
+      className="overflow-visible shadow-2xl rounded-lg"
+    >
       <div className="bg-white text-primary-blue px-1 lg:px-5 rounded-3xl py-4 lg:py-0">
         <div className="p-3 lg:px-0 grid lg:grid-cols-5 gap-8">
           <div className="flex justify-center gap-1 flex-1 flex-col">
@@ -64,30 +65,31 @@ const SearchForm = ({ type: string }) => {
           </div>
 
           <div className="flex justify-center flex-1 flex-col">
-            <label htmlFor="type" className="search-label">
-              Type
-            </label>
-            <DropDown
-            buttonText="Residential"
-            buttonClass="text-primary-blue mt-2 bg-white focus:outline-0"
-            name="propertyType"
-            options={["Residential", "Villa", "TownHouse","Residential", "Villa", "TownHouse","Residential", "Villa", "TownHouse"]}
-            updateData={updateSearchData}
-          />
-          </div> 
+            <PropertyTypeDropDown
+              name="propertyType"
+              buttonText="Residential"
+              buttonClass="text-primary-blue mt-2 bg-white focus:outline-0"
+              updateSearchData={updateSearchData}
+              options={["Residential", "Villa", "TownHouse"]}
+            />
+          </div>
 
           <div className="flex justify-center flex-1 flex-col">
             <label htmlFor="type" className="search-label">
               Price
             </label>
-            <PriceRangeSlider name="price" updateSearchData={updateSearchData} buttonClass="text-primary-blue mt-2 bg-white focus:outline-0"/>
+            <PriceRangeSlider
+              name="price"
+              updateSearchData={updateSearchData}
+              buttonClass="text-primary-blue mt-2 bg-white focus:outline-0"
+            />
           </div>
 
           <div className="flex justify-center flex-1 flex-col">
             <label htmlFor="type" className="search-label">
               Beds and Baths
             </label>
-            <DropDown
+            {/* <DropDown
               buttonText="Beds 0 - Baths 0"
               buttonClass="text-primary-blue mt-2 bg-white focus:outline-0"
               name="bedsAndBaths"
@@ -98,14 +100,14 @@ const SearchForm = ({ type: string }) => {
                 "40,0000 - 50,0000 AED",
               ]}
               updateData={updateSearchData}
-            />
+            /> */}
           </div>
 
           <Button
             className="flex justify-center items-center bg-primary-green w-full px-9 py-3 rounded-3xl"
             onClick={() => {}}
           >
-            <img src="/icons/ic_search.svg" width={32} height={32} />
+            <img src="/icons/ic_search.svg" className="w-4 h-4 lg:w-6 lg:h-6" />
           </Button>
         </div>
       </div>
@@ -128,21 +130,6 @@ const SearchForm = ({ type: string }) => {
             buttonClass="text-gray-four mt-2 bg-white focus:outline-0 text-sm"
             name="residential"
             options={["Residential", "Villa", "TownHouse"]}
-            updateData={updateSearchData}
-          />
-        </div>
-
-        <div className="flex flex-col justify-center">
-          <label className="font-normal">Beds/Bathrooms</label>
-          <Dropdown
-            buttonText="00 Bed/00 Baths"
-            buttonClass="text-gray-four mt-2 bg-white focus:outline-0 text-sm"
-            name="beds-baths"
-            options={[
-              "00 Bed / 00 Baths",
-              "01 Bed / 03 Baths",
-              "02 Bed / 00 Baths",
-            ]}
             updateData={updateSearchData}
           />
         </div>

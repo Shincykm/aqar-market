@@ -13,4 +13,3 @@ export {default as CustomSwiper} from './swiper/CustomSwiper';
 
 export {default as ReadMore} from './readMore/ReadMore';
 
-export {default as DropDown1} from './dropdown/DropDown1';
