@@ -17,7 +17,7 @@ export const Tabs: React.FC<TabsProps> = ({ children }) => {
   const isSmallScreen = useMediaQuery({ maxWidth: 767 });
 
   const childArray = React.Children.toArray(children) as ReactElement<TabProps>[];
-  const [activeTab, setActiveTab] = useState(null);
+  const [activeTab, setActiveTab] = useState(childArray[0]?.props?.label);
 
 
 
@@ -26,11 +26,11 @@ export const Tabs: React.FC<TabsProps> = ({ children }) => {
     setActiveTab(newActiveTab);
   };
 
-  useEffect(()=>{
-    if(!isSmallScreen){
-      setActiveTab(childArray[0]?.props?.label)
-    }
-  }, );
+  // useEffect(()=>{
+  //   if(!isSmallScreen){
+  //     setActiveTab(childArray[0]?.props?.label)
+  //   }
+  // },[activeTab]);
 
   return (
     <>

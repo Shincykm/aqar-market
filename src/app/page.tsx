@@ -1,4 +1,4 @@
-import { fetchProperties } from '@/api/property';
+import { fetchProperties } from '@/lib/api/property';
 import { HomeHero } from '@/sections/homePage/view';
 import BuyProperty from '@/sections/homePage/view/BuyProperty';
 import Cities from '@/sections/homePage/view/Cities';

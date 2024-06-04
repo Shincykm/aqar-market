@@ -8,13 +8,6 @@ const Input = ({ ...props }) => {
         {props.icons}
       </label>}
       <input
-        // type={props.type}
-        // name={props.name}
-        // id={props.id}
-        // value={props.value}
-        // placeholder={props.placeholder}
-        // className={`${props.className}`}
-        // onChange={props.onChange}
         {...props}
       />
     </div>

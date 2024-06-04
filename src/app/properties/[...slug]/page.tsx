@@ -1,4 +1,4 @@
-import { fetchProperties, fetchPropertyById } from '@/api/property';
+import { fetchProperties, fetchPropertyById } from '@/lib/api/property';
 import { LatestListing } from '@/sections/homePage/view';
 import PropertyDetailsSection from '@/sections/propertyDetailsPage/view/PropertyDetailsSection'
 

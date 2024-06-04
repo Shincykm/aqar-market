@@ -12,9 +12,9 @@ const PriceRangeSlider = ({ ...props }) => {
 
   const handlePriceChange = (value) => {
     setPriceRange((prev) => (prev = value));
-    props.updateSearchData({ minPrice: value[0] });
-    props.updateSearchData({ maxPrice: value[1] });
-    setText(`${value[0]}K - ${value[1]}K`);
+    props.updateSearchData({ minPrice: value[0]*1000 });
+    props.updateSearchData({ maxPrice: value[1]*1000 });
+    setText(`${value[0]*1000} - ${value[1]*1000} AED`);
   };
 
   return (
@@ -24,10 +24,11 @@ const PriceRangeSlider = ({ ...props }) => {
       selectedOption={text}
       close={false}
     >
-      <div className="p-6 w-full">
+      <div className={`w-full md:w-[420px] lg:w-[420px] border-t-[1px]`}>
+        <div className="p-6 w-full">
         <RangeSlider
           id="range-slider-blue"
-          className="mb-[13px]"
+          className="mb-4"
           min={minMaxPrice[0]}
           max={minMaxPrice[1]}
           step={1}
@@ -38,6 +39,7 @@ const PriceRangeSlider = ({ ...props }) => {
         <span className="text-xs xl:text-sm text-black absolute start-3">{`${minMaxPrice[0]}K`}</span>
         <span className="text-xs xl:text-sm absolute start-2/4 -translate-x-1/2 rtl:translate-x-1/2 text-secondary-blue">{`AED ${price[0]} to ${price[1]} K`}</span>
         <span className="text-xs xl:text-sm absolute end-3">{`${minMaxPrice[1]}K`}</span>
+        </div>
       </div>
     </DropDown>
   );

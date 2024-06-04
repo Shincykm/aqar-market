@@ -2,28 +2,30 @@
 import { useEffect, useRef, useState } from "react";
 import ClickOutside from "./ClickOutside";
 import Button from "../button/Button";
+import { useMediaQuery } from "react-responsive";
 
 const Dropdown = ({ children, ...props }) => {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
+  const isSmallScreen = useMediaQuery({ maxWidth: 767 });
 
   const toggleDropdown = () => {
-    setIsOpen((prev) => (!prev));
+    setIsOpen((prev) => !prev);
   };
 
   const handleClickOutside = () => {
     setIsOpen(false);
   };
 
-  useEffect(()=>{
-    if(props.close){
+  useEffect(() => {
+    if (props.close) {
       toggleDropdown();
     }
-  },[props.close])
+  }, [props.close]);
 
   return (
     <>
-      <div className="relative w-full" ref={ref}>
+      <div className="w-full" ref={ref}>
         {/* Dropdown button */}
         <Button
           id="dropdownDelayButton"
@@ -32,7 +34,11 @@ const Dropdown = ({ children, ...props }) => {
           onClick={toggleDropdown}
         >
           <div className="relative w-full">
-            <div className="flex gap-1 capitalize">
+            <div
+              className={`flex gap-1 capitalize ${
+                !props.selectedOption ? "text-gray-400" : ""
+              }`}
+            >
               {!props.selectedOption ? props.buttonText : props.selectedOption}
             </div>
             <div
@@ -60,7 +66,18 @@ const Dropdown = ({ children, ...props }) => {
         </Button>
 
         {/* Dropdown Body */}
-        {isOpen && ( children )}
+        {isOpen && (
+          <>
+            <div
+              id="dropdownDelay"
+              className={`bg-white z-[999] overflow-y-scroll scroll-smooth mt-2 lg:mt-3 xl:mt-3 max-h-[250px] ${
+                !isSmallScreen ? "rounded-b-lg shadow-lg absolute" : "relative"
+              } `}
+            >
+              {children}
+            </div>
+          </>
+        )}
 
         <ClickOutside ref={ref} onClickOutside={handleClickOutside} />
       </div>

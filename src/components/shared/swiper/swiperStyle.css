@@ -5,9 +5,9 @@
     @apply bg-gray-300 h-[2px] rounded-lg;
   }
 
-  .swiper {
-    @apply -z-10;
-  }
+  /* .swiper {
+    @apply -z-0;
+  } */
   /* .swiper-scrollbar.swiper-scrollbar-horizontal{
     @apply max-w-[1440px];
   } */
