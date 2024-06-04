@@ -19,7 +19,7 @@ const BedsBathsDropDown = ({ ...props }) => {
     <DropDown
       buttonText="Beds - Baths"
       buttonClass="text-primary-blue mt-2 bg-white focus:outline-0"
-      selectedOption={text}
+      selectedOption={(props.searchData?.beds !== 0 || props.searchData?.beds !== 0) && text}
       close={false}
     >
       <div className={`w-full md:w-[120px] lg:w-[220px] border-t-[1px]`} >

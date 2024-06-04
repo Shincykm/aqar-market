@@ -1,4 +1,5 @@
-import { fetchProperties, fetchPropertyById } from '@/lib/api/property';
+import { basicFetch } from '@/api/basicFetch';
+import { endpoints } from '@/lib/endpoints';
 import { LatestListing } from '@/sections/homePage/view';
 import PropertyDetailsSection from '@/sections/propertyDetailsPage/view/PropertyDetailsSection'
 
@@ -16,8 +17,9 @@ import PropertyDetailsSection from '@/sections/propertyDetailsPage/view/Property
 const propertyDetailsPage = async ({ params }: { params: { slug: string[] } }) => {
   const {slug} = params;
   
-  const { data: availableProperties } = await fetchProperties();
-  const { data: properyDetails } = await fetchPropertyById(slug[0]);
+  const { data: availableProperties } = await basicFetch(`${endpoints.properties.list}?page=1&limit=20`);
+
+  const { data: properyDetails } = await basicFetch(`${endpoints.properties.details}/${slug[0]}`);
 
   
   return (

@@ -1,13 +1,12 @@
-"use client";
+'use client'
 import React, { useState } from "react";
-import Input from "@/components/shared/input/Input";
-import { Button, DropDown } from "@/components/shared";
+import { Button } from "@/components/shared";
 import PriceRangeSlider from "@/components/search/rangeSlider/PriceRangeSlider";
 import PropertyTypeDropDown from "./PropertyTypeDropDown";
 import BedsBathsDropDown from "./bedsBaths/BedsBathsDropDown";
 import SearchInput from "./SearchInput";
 
-const SearchForm = ({ type: string }) => {
+const SearchForm = ({type, ...props}) => {
   const INITIAL_SEARCH_DATA = {
     "city_id": "",
     "property_type_id": "",
@@ -24,11 +23,6 @@ const SearchForm = ({ type: string }) => {
       ...prev,
       ...data,
     }));
-  };
-
-  const handleLocationInputChange = (e: any) => {
-    const { name, value } = e.target;
-    updateSearchData({ [name]: value.toLowerCase() });
   };
 
   const handleSubmit = (e: any) => {
@@ -56,16 +50,6 @@ const SearchForm = ({ type: string }) => {
             <label htmlFor="type" className="search-label">
               Location
             </label>
-            {/* <Input
-              type="text"
-              name="location"
-              id="location"
-              // icons={<FaLocationDot className="text-secondary-blue" />}
-              placeholder="Downtown..."
-              value={searchData.location}
-              onChange={handleLocationInputChange}
-              className="border-gray-border w-full focus:outline-0 text-sm placeholder:text-primary-blue"
-            /> */}
             <SearchInput />
           </div>
 
@@ -77,7 +61,7 @@ const SearchForm = ({ type: string }) => {
               name="propertyType"
               buttonText="Property Type"
               updateSearchData={updateSearchData}
-              options={["Residential", "Villa", "TownHouse"]}
+              options={props?.propertyTypes}
             />
           </div>
 
@@ -103,7 +87,6 @@ const SearchForm = ({ type: string }) => {
 
           <Button
             className="flex-center bg-primary-green px-9 py-3 rounded-3xl justify-self-center lg:justify-self-end"
-            onClick={() => {}}
           >
             <img src="/icons/ic_search.svg" className="w-4 h-4 lg:w-6 lg:h-6" />
           </Button>

@@ -1,23 +1,21 @@
 "use client";
 import React, { useState } from "react";
 import { DropDown } from "../shared";
-import { useMediaQuery } from "react-responsive";
 
 const PropertyTypeDropDown = ({ ...props }) => {
-  const isSmallScreen = useMediaQuery({ maxWidth: 767 });
 
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState(null);
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
-    props.updateSearchData({ property_type_id: option.toLowerCase() });
+    props.updateSearchData({ 'property_type_id': option.id });
   };
 
   return (
     <DropDown
       buttonText="Property Type"
       buttonClass="text-primary-blue mt-2 bg-white focus:outline-0"
-      selectedOption={selectedOption}
+      selectedOption={selectedOption?.name_en || ""}
       close={true}
     >
       <div className={`w-full md:w-[120px] lg:w-[220px] border-t-[1px]`}>
@@ -42,16 +40,16 @@ const PropertyTypeDropDown = ({ ...props }) => {
                 </button>
               </li>
               {props.options.map((item, index) => (
-                <li key={index} className="border-b-[1px]">
+                <li key={item.id} className="border-b-[1px]" value={item.id}>
                   <button
                     className={`${
-                      selectedOption === item
+                      selectedOption?.id === item?.id
                         ? "bg-primary-green text-white"
                         : ""
                     } capitalize block px-4 py-2 hover:bg-primary-green hover:text-white w-full text-left`}
                     onClick={() => handleOptionClick(item)}
                   >
-                    {item}
+                    {item.name_en}
                   </button>
                 </li>
               ))}
